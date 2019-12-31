@@ -11,7 +11,7 @@ public class MainMenu extends JFrame {
         //设置默认关闭方式
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //添加画布JPanel
-        this.add(new JPanel());
+        this.add(new Panel());
         //重画，设置可见
         this.setVisible(true);
     }
