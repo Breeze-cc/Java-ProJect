@@ -1,6 +1,7 @@
 import javax.swing.*;
 
 public class MainMenu extends JFrame {
+
     public MainMenu(){
         //设置标题
         this.setTitle("简易备忘录 -- By:Breeze_cc");
