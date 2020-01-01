@@ -1,8 +1,10 @@
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Action_Listner implements ActionListener {
+public class Action_Listner implements ActionListener , ListSelectionListener {
     //ListAction list;
     private JList list;
     private DefaultListModel tmp = new DefaultListModel();
@@ -13,6 +15,7 @@ public class Action_Listner implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
 
         //如果触发响应的器件上的字符串是 “新建”
         if(e.getActionCommand() == "新建"){
@@ -52,5 +55,11 @@ public class Action_Listner implements ActionListener {
         }
 
         //如果触发响应的器件
+    }
+
+    @Override
+    public void valueChanged(ListSelectionEvent e) {
+
+        JOptionPane.showMessageDialog(list ,list.getSelectedIndex());
     }
 }
