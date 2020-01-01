@@ -21,6 +21,7 @@ public class Action_Listner implements ActionListener {
 
         }
 
+
         if(e.getActionCommand() == "删除")
         {
             if(tmp.getSize() > 0)
