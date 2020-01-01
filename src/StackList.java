@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.Stack;
 
 class StackList {
     private char Data[] = new char[41];
@@ -50,10 +51,15 @@ class StackList {
         return true;
     }
 
+    public StackList Clean(){
+        StackList newList = new StackList();
+        return newList;
+    }
     public int length(){
         return Top;
     }
     public String getDatas(){
         return String.valueOf(Data);
     }
+
 }
