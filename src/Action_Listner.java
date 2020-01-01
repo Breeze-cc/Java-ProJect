@@ -1,8 +1,10 @@
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Action_Listner implements ActionListener {
+public class Action_Listner implements ActionListener , ListSelectionListener {
     //ListAction list;
     private JList list;
     private DefaultListModel tmp = new DefaultListModel();
@@ -14,37 +16,50 @@ public class Action_Listner implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if(e.getActionCommand() == "新建"){
-            String str = JOptionPane.showInputDialog(list, "新建备忘录", JOptionPane.PLAIN_MESSAGE);
-            tmp.addElement(str);
-            list.setModel(tmp);
 
+        //如果触发响应的器件上的字符串是 “新建”
+        if(e.getActionCommand() == "新建"){
+
+            //弹出新的窗口输入新备忘录的标题
+            String str = JOptionPane.showInputDialog(list, "新建备忘录", JOptionPane.PLAIN_MESSAGE);
+
+            //添加列表项目
+            tmp.addElement(str);
+
+            //将tmp中的内容同步到list
+            list.setModel(tmp);
         }
 
+        //如果触发响应的器件上的字符串是 “删除”
+        if(e.getActionCommand() == "删除"){
 
-        if(e.getActionCommand() == "删除")
-        {
-            if(tmp.getSize() > 0)
-            {
-                if(list.getSelectedIndex() != -1)
-                {
+            //如果列表的条目数量大于0
+            if(tmp.getSize() > 0) {
+
+                //如果有内容被选中
+                if(list.getSelectedIndex() != -1) {
+
+                    //将选中内容移除
                     tmp.removeElementAt(list.getLeadSelectionIndex());
-                    //tmp.removeElementAt(tmp.getSize() - 1);
+
+                    //将tmp中的内容同步至list
                     list.setModel(tmp);
 
                 }
-                else
-                {
+
+                //如果没有内容被选中，则弹出提示窗口
+                else {
                     JOptionPane.showMessageDialog(list ,"请选择要删除的项");
                 }
             }
         }
 
-//        String str = JOptionPane.showInputDialog(this, "请输入备忘录标题", "新建备忘录", JOptionPane.PLAIN_MESSAGE);
-//        if (str != null){
-//            tmp.addElement(str);
-////            未完成部份
-//            //this.list =
-//        }
+        //如果触发响应的器件
+    }
+
+    @Override
+    public void valueChanged(ListSelectionEvent e) {
+
+        JOptionPane.showMessageDialog(list ,list.getSelectedIndex());
     }
 }
