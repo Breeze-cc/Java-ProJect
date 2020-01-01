@@ -16,19 +16,22 @@ public class Panel extends JPanel {
         //设置大背景的背景色(天蓝色SkyBlue)
         setBackground(new Color(135, 206, 235));
 
+
         //新建新的列表
         //ListAction list = new ListAction();
         String[] test = new String[]{};
         list = new JList(test);
+
+        //注册监听器
+        listner = new Action_Listner(list);
+
+        list.addListSelectionListener(listner);
 
         //设置列表的显示方式：用一列显示
         list.setLayoutOrientation(JList.VERTICAL);
 
         //设置列表每次只能有一个选项被选中
         list.setSelectionMode(0);
-
-        //注册监听器
-        listner = new Action_Listner(list);
 
 //        设置新建按钮的属性
         newNote = new JButton("新建");
