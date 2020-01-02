@@ -10,6 +10,8 @@ public class Action_Listner implements ActionListener , ListSelectionListener {
     private JList list;
     private DefaultListModel tmp = new DefaultListModel();
 
+    StackList PtrlS = new StackList();
+
     public Action_Listner(JList list){
         this.list = list;
     }
@@ -55,14 +57,14 @@ public class Action_Listner implements ActionListener , ListSelectionListener {
             }
         }
 
-        //如果触发响应的器件
+        //编辑窗口的触发器
+
     }
 
     @Override
 
     public void valueChanged(ListSelectionEvent e) {
 
-        //JOptionPane.showMessageDialog(list ,list.getSelectedIndex());
-
+        EditWindow editwindow = new EditWindow(PtrlS);
     }
 }
