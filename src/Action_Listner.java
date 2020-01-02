@@ -56,9 +56,6 @@ public class Action_Listner implements ActionListener , ListSelectionListener {
                 }
             }
         }
-
-        //编辑窗口的触发器
-
     }
 
     @Override

@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2be96a9-e6b5-418e-87fb-c24bd57822eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/EditWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Action_Listner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action_Listner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StackList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StackList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EditWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditWindow.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +38,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -109,26 +106,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="803" y="412" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577883278680" />
-    <state x="732" y="264" key="FileChooserDialogImpl" timestamp="1577889639461">
+    <state x="732" y="264" key="FileChooserDialogImpl" timestamp="1577955460743">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="732" y="264" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1577889639461" />
-    <state width="1875" height="281" key="GridCell.Tab.0.bottom" timestamp="1577892874305">
+    <state x="732" y="264" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1577955460743" />
+    <state width="1875" height="281" key="GridCell.Tab.0.bottom" timestamp="1577957378122">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1875" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1577892874305" />
-    <state width="1875" height="281" key="GridCell.Tab.0.center" timestamp="1577892874305">
+    <state width="1875" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1577957378122" />
+    <state width="1875" height="281" key="GridCell.Tab.0.center" timestamp="1577957378122">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1875" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1577892874305" />
-    <state width="1875" height="281" key="GridCell.Tab.0.left" timestamp="1577892874305">
+    <state width="1875" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1577957378122" />
+    <state width="1875" height="281" key="GridCell.Tab.0.left" timestamp="1577957378122">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1875" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1577892874305" />
-    <state width="1875" height="281" key="GridCell.Tab.0.right" timestamp="1577892874305">
+    <state width="1875" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1577957378122" />
+    <state width="1875" height="281" key="GridCell.Tab.0.right" timestamp="1577957378122">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1875" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577892874305" />
+    <state width="1875" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577957378122" />
     <state width="912" height="346" key="GridCell.Tab.1.bottom" timestamp="1577719886707">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -149,10 +146,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="512" y="223" key="NewModule_or_Project.wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1577883540330" />
-    <state x="440" y="97" key="SettingsEditor" timestamp="1577883543329">
+    <state x="440" y="97" key="SettingsEditor" timestamp="1577956482785">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="97" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1577883543329" />
+    <state x="440" y="97" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1577956482785" />
     <state x="640" y="152" width="640" height="735" key="find.popup" timestamp="1577779999658">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -161,6 +158,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="124" y="136" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1577793182863" />
+    <state x="565" y="309" width="695" height="286" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1577956480428">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="565" y="309" width="695" height="286" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577956480428" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1577892663200">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
