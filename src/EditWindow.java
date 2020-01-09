@@ -2,8 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class EditWindow extends JFrame implements ActionListener{
 
@@ -14,9 +15,12 @@ public class EditWindow extends JFrame implements ActionListener{
     JButton allDelete;
     JButton save;
     StackList PtrlS;
+    JList list;
+    Map<String, String> map = new HashMap<String, String>();
 
-    EditWindow(StackList Ptrl){
+    EditWindow(StackList Ptrl, JList list){
 
+        this.list = list;
         this.PtrlS = Ptrl;
         //设置窗口属性
         this.setTitle("编辑备忘录");
@@ -93,7 +97,8 @@ public class EditWindow extends JFrame implements ActionListener{
 
         //保存 按钮的触发器
         if (e.getActionCommand() == "保存"){
-            File inMyPC = new File("F:\\", "note.cvs");
+            String filename = "F:\\note.cvs";
+            File inMyPC = new File(filename);
 
             //如果不存在该文件，就新建一个
             if (! inMyPC.exists()){
@@ -104,6 +109,25 @@ public class EditWindow extends JFrame implements ActionListener{
                 }
             }
 
+            //读取备忘录标题
+            String title = (String) list.getSelectedValue();
+
+            //写入map中
+            map.put(title, PtrlS.getDatas());
+
+            //写入文件中
+            try {
+                //文件追加，使写入的不会覆盖原本的内容
+                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(inMyPC, true)));
+                out.write(title);
+                out.write(",");
+                out.write(PtrlS.getDatas());
+                out.newLine();
+                out.flush();
+                out.close();
+            }catch (IOException ex) {
+                ex.printStackTrace();
+            }
             JOptionPane.showMessageDialog(this, "保存成功！");
         }
     }

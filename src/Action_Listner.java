@@ -59,6 +59,6 @@ public class Action_Listner implements ActionListener , ListSelectionListener {
 
     @Override
     public void valueChanged(ListSelectionEvent e) {
-        EditWindow editwindow = new EditWindow(PtrlS);
+        EditWindow editwindow = new EditWindow(PtrlS, list);
     }
 }
