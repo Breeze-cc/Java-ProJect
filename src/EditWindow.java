@@ -100,15 +100,6 @@ public class EditWindow extends JFrame implements ActionListener{
             String filename = "F:\\note.cvs";
             File inMyPC = new File(filename);
 
-            //如果不存在该文件，就新建一个
-            if (! inMyPC.exists()){
-                try {
-                    inMyPC.createNewFile();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            }
-
             //读取备忘录标题
             String title = (String) list.getSelectedValue();
 
