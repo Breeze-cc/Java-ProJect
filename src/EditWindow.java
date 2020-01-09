@@ -39,6 +39,7 @@ public class EditWindow extends JFrame implements ActionListener{
         this.add(showMessage);
         showMessage.setBounds(10, 10, 330, 300);
         showMessage.setLineWrap(true);
+        showMessage.setEditable(false);
 
         //配置 添加 按钮
         this.add(add);
@@ -97,11 +98,12 @@ public class EditWindow extends JFrame implements ActionListener{
 
         //保存 按钮的触发器
         if (e.getActionCommand() == "保存"){
-            String filename = "F:\\note.cvs";
+            String filename = "F:\\note.csv";
             File inMyPC = new File(filename);
 
             //读取备忘录标题
             String title = (String) list.getSelectedValue();
+            System.out.println(title);
 
             //写入map中
             map.put(title, PtrlS.getDatas());
@@ -109,7 +111,7 @@ public class EditWindow extends JFrame implements ActionListener{
             //写入文件中
             try {
                 //文件追加，使写入的不会覆盖原本的内容
-                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(inMyPC, true)));
+                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(inMyPC, true), "UTF-8"));
                 out.write(title);
                 out.write(",");
                 out.write(PtrlS.getDatas());

@@ -24,8 +24,9 @@ public class Panel extends JPanel {
         //注册监听器
         listner = new Action_Listner(list);
 
+
         //为list添加监听，事件响应
-        list.addListSelectionListener(listner);
+        list.addMouseListener(listner);
 
         //设置列表的显示方式：用一列显示
         list.setLayoutOrientation(JList.VERTICAL);
@@ -34,7 +35,7 @@ public class Panel extends JPanel {
         list.setSelectionMode(0);
 
         //打开之后先读取文件中已有的项并添加到list中
-        String filename = "F:\\note.cvs";
+        String filename = "F:\\note.csv";
         File inMyPC = new File(filename);
 
         //如果不存在该文件，就新建一个
@@ -46,8 +47,8 @@ public class Panel extends JPanel {
             }
         }
 
-        //从文件中读取，cvs的键
-        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("F:\\note.cvs")));
+        //从文件中读取cvs的键
+        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("F:\\note.cvs"), "UTF-8"));
         String line = null;
         while((line = in.readLine()) != null){
             HashMap<String, String> item = new HashMap<String, String>();
@@ -56,6 +57,7 @@ public class Panel extends JPanel {
             tmp.addElement(itemArray[0]);
             list.setModel(tmp);
         }
+
 //        设置新建按钮的属性
         newNote = new JButton("新建");
         newNote.setBounds(50, 20, 100, 33);
