@@ -9,8 +9,9 @@ public class Panel extends JPanel {
     private JButton newNote, delNote;
     private JList list;
     private Action_Listner listner;
+    private DefaultListModel tmp = new DefaultListModel();
 
-    public Panel() throws IOException {
+    public Panel() throws IOException, FileNotFoundException{
         //设置Panel为边界布局
         this.setLayout(null);
 
@@ -22,8 +23,7 @@ public class Panel extends JPanel {
         list = new JList(test);
 
         //注册监听器
-        listner = new Action_Listner(list);
-
+        listner = new Action_Listner(list, tmp);
 
         //为list添加监听，事件响应
         list.addMouseListener(listner);
@@ -35,7 +35,7 @@ public class Panel extends JPanel {
         list.setSelectionMode(0);
 
         //打开之后先读取文件中已有的项并添加到list中
-        String filename = "F:\\note.csv";
+        String filename = "F:\\note.txt";
         File inMyPC = new File(filename);
 
         //如果不存在该文件，就新建一个
@@ -47,13 +47,12 @@ public class Panel extends JPanel {
             }
         }
 
-        //从文件中读取cvs的键
-        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("F:\\note.cvs"), "UTF-8"));
+        //从文件中读取txt的键
+        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("F:\\note.txt"), "UTF-8"));
         String line = null;
         while((line = in.readLine()) != null){
             HashMap<String, String> item = new HashMap<String, String>();
             String[] itemArray = line.split(",");
-            DefaultListModel tmp = new DefaultListModel();
             tmp.addElement(itemArray[0]);
             list.setModel(tmp);
         }

@@ -36,34 +36,34 @@ public class EditWindow extends JFrame implements ActionListener{
         save = new JButton("保存");
 
         //配置文本框
-        this.add(showMessage);
         showMessage.setBounds(10, 10, 330, 300);
         showMessage.setLineWrap(true);
         showMessage.setEditable(false);
+        this.add(showMessage);
 
         //配置 添加 按钮
-        this.add(add);
         add.setBounds(10, 320, 70, 50);
         add.setBackground(new Color(0, 249, 255));
         add.addActionListener(this);
+        this.add(add);
 
         //添加 退格 按钮
-        this.add(delete);
         delete.setBounds(90, 320, 70, 50);
         delete.setBackground(new Color(255, 254, 74));
         delete.addActionListener(this);
+        this.add(delete);
 
         //配置 清空 按钮
-        this.add(allDelete);
         allDelete.setBounds(170, 320, 70, 50);
         allDelete.setBackground(new Color(255, 0, 0));
         allDelete.addActionListener(this);
+        this.add(allDelete);
 
         //配置 保存 按钮
-        this.add(save);
         save.setBounds(250, 320, 70, 50);
         save.setBackground(new Color(142, 251, 251));
         save.addActionListener(this);
+        this.add(save);
 
         //重画
         this.setVisible(true);
@@ -98,7 +98,7 @@ public class EditWindow extends JFrame implements ActionListener{
 
         //保存 按钮的触发器
         if (e.getActionCommand() == "保存"){
-            String filename = "F:\\note.csv";
+            String filename = "F:\\note.txt";
             File inMyPC = new File(filename);
 
             //读取备忘录标题
