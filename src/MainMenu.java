@@ -15,5 +15,6 @@ public class MainMenu extends JFrame {
         this.add(new Panel());
         //重画，设置可见
         this.setVisible(true);
+
     }
 }

@@ -39,6 +39,7 @@ public class EditWindow extends JFrame implements ActionListener{
         this.add(showMessage);
         showMessage.setBounds(10, 10, 330, 300);
         showMessage.setLineWrap(true);
+        showMessage.setEditable(false);
 
         //配置 添加 按钮
         this.add(add);
@@ -111,6 +112,7 @@ public class EditWindow extends JFrame implements ActionListener{
 
             //读取备忘录标题
             String title = (String) list.getSelectedValue();
+            System.out.println(title);
 
             //写入map中
             map.put(title, PtrlS.getDatas());

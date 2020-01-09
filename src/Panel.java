@@ -25,7 +25,8 @@ public class Panel extends JPanel {
         //注册监听器
         listner = new Action_Listner(list);
 
-        list.addListSelectionListener(listner);
+        //list.addListSelectionListener(listner);
+        list.addMouseListener(listner);
 
         //设置列表的显示方式：用一列显示
         list.setLayoutOrientation(JList.VERTICAL);
@@ -56,6 +57,7 @@ public class Panel extends JPanel {
 
         //将列表添加到画板上
         this.add(list);
+
 
 
     }

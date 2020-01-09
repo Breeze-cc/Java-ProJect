@@ -1,10 +1,13 @@
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class Action_Listner implements ActionListener , ListSelectionListener {
+public class Action_Listner implements ActionListener , ListSelectionListener , MouseListener {
     //ListAction list;
     private JList list;
     private DefaultListModel tmp = new DefaultListModel();
@@ -17,7 +20,6 @@ public class Action_Listner implements ActionListener , ListSelectionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
 
         //如果触发响应的器件上的字符串是 “新建”
         if(e.getActionCommand() == "新建"){
@@ -58,7 +60,37 @@ public class Action_Listner implements ActionListener , ListSelectionListener {
     }
 
     @Override
+
     public void valueChanged(ListSelectionEvent e) {
-        EditWindow editwindow = new EditWindow(PtrlS, list);
+        //EditWindow editwindow = new EditWindow(PtrlS, list);
+        //System.out.println("test click");
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if(e.getSource() == list)
+        {
+            EditWindow editWindow = new EditWindow(PtrlS, list);
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }
