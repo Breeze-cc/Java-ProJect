@@ -57,8 +57,8 @@ public class Panel extends JPanel {
             String[] itemArray = line.split(",");
             map.put(itemArray[0], itemArray[1]);
             tmp.addElement(itemArray[0]);
-            list.setModel(tmp);
         }
+        list.setModel(tmp);
 
 //        设置新建按钮的属性
         newNote = new JButton("新建");
