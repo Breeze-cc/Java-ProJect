@@ -16,12 +16,17 @@ public class EditWindow extends JFrame implements ActionListener{
     JButton save;
     StackList PtrlS;
     JList list;
+    String key;
     Map<String, String> map = new HashMap<String, String>();
 
-    EditWindow(StackList Ptrl, JList list){
+    EditWindow(StackList Ptrl, JList list, String key, Map<String, String> map){
 
+        this.map = map;
         this.list = list;
         this.PtrlS = Ptrl;
+        for (int i = 0; i < map.get(key).length(); i++){
+            Ptrl.Push(map.get(key).charAt(i));
+        }
         //设置窗口属性
         this.setTitle("编辑备忘录");
         this.setSize(350, 400);
@@ -36,40 +41,93 @@ public class EditWindow extends JFrame implements ActionListener{
         save = new JButton("保存");
 
         //配置文本框
-        this.add(showMessage);
         showMessage.setBounds(10, 10, 330, 300);
         showMessage.setLineWrap(true);
         showMessage.setEditable(false);
+        showMessage.setText(PtrlS.getDatas());
+        this.add(showMessage);
 
         //配置 添加 按钮
-        this.add(add);
         add.setBounds(10, 320, 70, 50);
         add.setBackground(new Color(0, 249, 255));
         add.addActionListener(this);
+        this.add(add);
 
         //添加 退格 按钮
-        this.add(delete);
         delete.setBounds(90, 320, 70, 50);
         delete.setBackground(new Color(255, 254, 74));
         delete.addActionListener(this);
+        this.add(delete);
 
         //配置 清空 按钮
-        this.add(allDelete);
         allDelete.setBounds(170, 320, 70, 50);
         allDelete.setBackground(new Color(255, 0, 0));
         allDelete.addActionListener(this);
+        this.add(allDelete);
 
         //配置 保存 按钮
-        this.add(save);
         save.setBounds(250, 320, 70, 50);
         save.setBackground(new Color(142, 251, 251));
         save.addActionListener(this);
+        this.add(save);
 
         //重画
         this.setVisible(true);
 
     }
+    EditWindow(StackList Ptrl, JList list){
 
+        this.list = list;
+        this.PtrlS = Ptrl;
+
+        //设置窗口属性
+        this.setTitle("编辑备忘录");
+        this.setSize(350, 400);
+        this.setResizable(false);
+        this.setLayout(null);
+
+        //配置四个按钮
+        showMessage = new JTextArea();
+        add = new JButton("添加");
+        delete = new JButton("退格");
+        allDelete = new JButton("清空");
+        save = new JButton("保存");
+
+        //配置文本框
+        showMessage.setBounds(10, 10, 330, 300);
+        showMessage.setLineWrap(true);
+        showMessage.setEditable(false);
+        showMessage.setText(PtrlS.getDatas());
+        this.add(showMessage);
+
+        //配置 添加 按钮
+        add.setBounds(10, 320, 70, 50);
+        add.setBackground(new Color(0, 249, 255));
+        add.addActionListener(this);
+        this.add(add);
+
+        //添加 退格 按钮
+        delete.setBounds(90, 320, 70, 50);
+        delete.setBackground(new Color(255, 254, 74));
+        delete.addActionListener(this);
+        this.add(delete);
+
+        //配置 清空 按钮
+        allDelete.setBounds(170, 320, 70, 50);
+        allDelete.setBackground(new Color(255, 0, 0));
+        allDelete.addActionListener(this);
+        this.add(allDelete);
+
+        //配置 保存 按钮
+        save.setBounds(250, 320, 70, 50);
+        save.setBackground(new Color(142, 251, 251));
+        save.addActionListener(this);
+        this.add(save);
+
+        //重画
+        this.setVisible(true);
+
+    }
     //编辑窗口的触发器
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -98,21 +156,14 @@ public class EditWindow extends JFrame implements ActionListener{
 
         //保存 按钮的触发器
         if (e.getActionCommand() == "保存"){
-            String filename = "F:\\note.csv";
-            File inMyPC = new File(filename);
 
-            //如果不存在该文件，就新建一个
-            if (! inMyPC.exists()){
-                try {
-                    inMyPC.createNewFile();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            }
+            String filename = "F:\\note.txt";
+
+            File inMyPC = new File(filename);
 
             //读取备忘录标题
             String title = (String) list.getSelectedValue();
-            System.out.println(title);
+//            System.out.println(title);
 
             //写入map中
             map.put(title, PtrlS.getDatas());
@@ -120,12 +171,15 @@ public class EditWindow extends JFrame implements ActionListener{
             //写入文件中
             try {
                 //文件追加，使写入的不会覆盖原本的内容
-                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(inMyPC, true)));
-                out.write(title);
-                out.write(",");
-                out.write(PtrlS.getDatas());
-                out.newLine();
-                out.flush();
+                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(inMyPC), "UTF-8"));
+                for (String key : map.keySet()){
+                    String value = map.get(key);
+                    out.write(key);
+                    out.write(",");
+                    out.write(value);
+                    out.newLine();
+                    out.flush();
+                }
                 out.close();
             }catch (IOException ex) {
                 ex.printStackTrace();

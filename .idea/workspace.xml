@@ -2,17 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2be96a9-e6b5-418e-87fb-c24bd57822eb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Action_Listner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action_Listner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EditWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ListAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Panel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StackList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StackList.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="ProJect" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -33,7 +37,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Memorandum" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -53,8 +57,10 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="ProJect" />
+      <module name="Java-ProJect" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -79,6 +85,16 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -93,62 +109,66 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="615" y="184" width="690" height="672" key="#Main" timestamp="1577883644810">
+    <state x="615" y="184" width="690" height="672" key="#Main" timestamp="1578576525366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="615" y="184" width="690" height="672" key="#Main/0.0.1920.1040@0.0.1920.1040" timestamp="1577883644810" />
-    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1577891759294">
+    <state x="615" y="184" width="690" height="672" key="#Main/0.0.1920.1040@0.0.1920.1040" timestamp="1578576525366" />
+    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1578588834726">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1577891759294" />
+    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1578588834726" />
     <state x="803" y="412" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1577883278680">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="803" y="412" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577883278680" />
-    <state x="732" y="264" key="FileChooserDialogImpl" timestamp="1578570722348">
+    <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578574540260">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="732" y="264" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578570722348" />
-    <state width="1875" height="281" key="GridCell.Tab.0.bottom" timestamp="1578573034034">
+    <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578574540260" />
+    <state x="732" y="264" key="FileChooserDialogImpl" timestamp="1578590167613">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1875" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578573034034" />
-    <state width="1875" height="281" key="GridCell.Tab.0.center" timestamp="1578573034033">
+    <state x="732" y="264" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578590167613" />
+    <state width="937" height="337" key="GridCell.Tab.0.bottom" timestamp="1578619559696">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1875" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578573034033" />
-    <state width="1875" height="281" key="GridCell.Tab.0.left" timestamp="1578573034033">
+    <state width="937" height="337" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578619559696" />
+    <state width="937" height="337" key="GridCell.Tab.0.center" timestamp="1578619559696">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1875" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578573034033" />
-    <state width="1875" height="281" key="GridCell.Tab.0.right" timestamp="1578573034033">
+    <state width="937" height="337" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578619559696" />
+    <state width="937" height="337" key="GridCell.Tab.0.left" timestamp="1578619559696">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1875" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578573034033" />
-    <state width="912" height="346" key="GridCell.Tab.1.bottom" timestamp="1577719886707">
+    <state width="937" height="337" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578619559696" />
+    <state width="937" height="337" key="GridCell.Tab.0.right" timestamp="1578619559696">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="912" height="346" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1577719886707" />
-    <state width="912" height="346" key="GridCell.Tab.1.center" timestamp="1577719886707">
+    <state width="937" height="337" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578619559696" />
+    <state width="937" height="337" key="GridCell.Tab.1.bottom" timestamp="1578619417198">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="912" height="346" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1577719886707" />
-    <state width="912" height="346" key="GridCell.Tab.1.left" timestamp="1577719886707">
+    <state width="937" height="337" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578619417198" />
+    <state width="937" height="337" key="GridCell.Tab.1.center" timestamp="1578619417198">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="912" height="346" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1577719886707" />
-    <state width="912" height="346" key="GridCell.Tab.1.right" timestamp="1577719886707">
+    <state width="937" height="337" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578619417198" />
+    <state width="937" height="337" key="GridCell.Tab.1.left" timestamp="1578619417198">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="912" height="346" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577719886707" />
-    <state x="512" y="223" key="NewModule_or_Project.wizard" timestamp="1577883540330">
+    <state width="937" height="337" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578619417198" />
+    <state width="937" height="337" key="GridCell.Tab.1.right" timestamp="1578619417198">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="512" y="223" key="NewModule_or_Project.wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1577883540330" />
-    <state x="440" y="97" key="SettingsEditor" timestamp="1578571053259">
+    <state width="937" height="337" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578619417198" />
+    <state x="512" y="223" key="NewModule_or_Project.wizard" timestamp="1578576409600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="97" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578571053259" />
+    <state x="512" y="223" key="NewModule_or_Project.wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1578576409600" />
+    <state x="440" y="97" key="SettingsEditor" timestamp="1578576412759">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="97" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578576412759" />
     <state x="640" y="152" width="640" height="735" key="find.popup" timestamp="1577779999658">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -165,13 +185,27 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1577892663200" />
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1577717609119">
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1578619008769">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1577717609119" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1578619008769" />
     <state x="682" y="437" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1577777258606">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="682" y="437" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577777258606" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Action_Listner.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ProJect$Main.ic" NAME="Main Coverage Results" MODIFIED="1578619404742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

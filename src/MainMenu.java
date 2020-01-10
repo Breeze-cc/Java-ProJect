@@ -1,8 +1,9 @@
 import javax.swing.*;
+import java.io.IOException;
 
 public class MainMenu extends JFrame {
 
-    public MainMenu(){
+    public MainMenu() throws IOException {
         //设置标题
         this.setTitle("简易备忘录 -- By:Breeze_cc");
         //设置大小
