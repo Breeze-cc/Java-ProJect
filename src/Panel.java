@@ -4,12 +4,14 @@ import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.io.*;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Panel extends JPanel {
     private JButton newNote, delNote;
     private JList list;
     private Action_Listner listner;
     private DefaultListModel tmp = new DefaultListModel();
+    Map<String, String> map = new HashMap<String, String>();
 
     public Panel() throws IOException, FileNotFoundException{
         //设置Panel为边界布局
@@ -23,7 +25,7 @@ public class Panel extends JPanel {
         list = new JList(test);
 
         //注册监听器
-        listner = new Action_Listner(list, tmp);
+        listner = new Action_Listner(list, tmp, map);
 
         //为list添加监听，事件响应
         list.addMouseListener(listner);
@@ -51,8 +53,9 @@ public class Panel extends JPanel {
         BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("F:\\note.txt"), "UTF-8"));
         String line = null;
         while((line = in.readLine()) != null){
-            HashMap<String, String> item = new HashMap<String, String>();
+//            HashMap<String, String> item = new HashMap<String, String>();
             String[] itemArray = line.split(",");
+            map.put(itemArray[0], itemArray[1]);
             tmp.addElement(itemArray[0]);
             list.setModel(tmp);
         }

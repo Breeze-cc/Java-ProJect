@@ -7,17 +7,19 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.*;
+import java.util.Map;
 
 public class Action_Listner implements ActionListener, ListSelectionListener, MouseListener {
     //ListAction list;
     private JList list;
     private DefaultListModel tmp;
-
+    private Map<String, String> map;
     StackList PtrlS = new StackList();
 
-    public Action_Listner(JList list, DefaultListModel tmp) {
+    public Action_Listner(JList list, DefaultListModel tmp, Map<String, String> map) {
         this.list = list;
         this.tmp = tmp;
+        this.map = map;
     }
 
     @Override
@@ -45,54 +47,32 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
                 //如果有内容被选中
                 if (list.getSelectedIndex() != -1) {
 
-                    //将文件中的相应内容删除
-                    //先遍历所有条目，然后找出标题对应的一项
-                    File file_read = new File("F:\\note.txt");
-                    File file_wrote = new File("F:\\note_new.txt");
 
-                    BufferedReader Bread = null;
-                    String line;
-                    BufferedWriter Bwrite = null;
-                    FileWriter Fwrite = null;
-                    FileReader Fread = null;
+                    map.remove(list.getSelectedValue());
+
+                    String filename = "F:\\note.txt";
+                    File inMyPC = new File(filename);
                     try {
-                        Fwrite = new FileWriter(file_wrote);
-                        Bwrite = new BufferedWriter(Fwrite);
-                        if (!file_wrote.exists()) {
-                            file_wrote.createNewFile();
+                        //文件追加，使写入的不会覆盖原本的内容
+                        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(inMyPC), "UTF-8"));
+                        for (String key : map.keySet()) {
+                            String value = map.get(key);
+                            out.write(key);
+                            out.write(",");
+                            out.write(value);
+                            out.newLine();
+                            out.flush();
                         }
-                        Fread = new FileReader(file_read);
-                        Bread = new BufferedReader(Fread);
-                        int index = 0;
-                        while ((line = Bread.readLine()) != null) {
-                            if (line.contains((String) list.getSelectedValue())) {
-                                continue;
-                            }
-                            Bwrite.write(line + "\n");
-                            if (index++ == 100) {
-                                Bwrite.flush();
-                                index = 0;
-                            }
-                        }
-                        Bwrite.flush();
-                        Fwrite.flush();
-                        Fread.close();
-                        Bwrite.close();
-                        Fread.close();
-                        Fwrite.close();
+                        out.close();
                     } catch (IOException ex) {
-                        System.out.println("文件写入失败！");
+                        ex.printStackTrace();
                     }
-                    boolean re2 = file_wrote.renameTo(file_read);
-                    boolean re1 = file_read.delete();
-                    System.out.println("删除：" + re1);
-                    System.out.println("命名：" + re2);
-
                     //将选中内容移除
                     tmp.removeElementAt(list.getLeadSelectionIndex());
 
                     //将tmp中的内容同步至list
                     list.setModel(tmp);
+                    JOptionPane.showMessageDialog(list, "删除成功！");
                 }
 
                 //如果没有内容被选中，则弹出提示窗口
@@ -103,12 +83,17 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
         }
     }
 
-    //重载方法
+    //重载方法,鼠标双击事件
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == list) {
             if (e.getClickCount() == 2) {
-                EditWindow editWindow = new EditWindow(PtrlS, list);
+                String key = (String) list.getSelectedValue();
+                if (!map.containsKey(key)) {
+                    EditWindow editWindow = new EditWindow(PtrlS, list);
+                } else {
+                    EditWindow editWindow = new EditWindow(PtrlS, list, key, map);
+                }
             }
         }
     }
