@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
 
 public class MainMenu extends JFrame {
     private TrayIcon trayIcon;//托盘图标
@@ -46,12 +45,10 @@ public class MainMenu extends JFrame {
                 setLocation((e.getXOnScreen()-mouseAtX),(e.getYOnScreen()-mouseAtY));//设置拖拽后，窗口的位置
             }
         });
-//        new SystemTrayDemo(this);
-        //重画，设置可见
         this.setVisible(true);
 
         try {
-            trayIcon = new TrayIcon(ImageIO.read(new File("..\\备忘录.png")));
+            trayIcon = new TrayIcon(ImageIO.read(new File("..\\img\\备忘录.png")));
             systemTray.add(trayIcon);//设置托盘的图标，0.gif与该类文件同一目录
         }
         catch (IOException e1) {e1.printStackTrace();}

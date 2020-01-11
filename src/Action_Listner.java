@@ -14,19 +14,19 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
     private JList list;
     private DefaultListModel tmp;
     private Map<String, String> map;
-    StackList PtrlS = new StackList();
-
-    public Action_Listner(JList list, DefaultListModel tmp, Map<String, String> map) {
+    private StackList PtrlS;
+    public Action_Listner(StackList PtrlS, JList list, DefaultListModel tmp, Map<String, String> map, JButton newI, JButton delI) {
         this.list = list;
         this.tmp = tmp;
         this.map = map;
+        this.PtrlS = PtrlS;
     }
-
+    static editwindow1 editwindow;
     @Override
     public void actionPerformed(ActionEvent e) {
 
         //如果触发响应的器件上的字符串是 “新建”
-        if (e.getActionCommand() == "新建") {
+        if (e.getSource() == Panel.newNote) {
 
             //弹出新的窗口输入新备忘录的标题
             String str = JOptionPane.showInputDialog(list, "新建备忘录", JOptionPane.PLAIN_MESSAGE);
@@ -41,7 +41,7 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
         }
 
         //如果触发响应的器件上的字符串是 “删除”
-        if (e.getActionCommand() == "删除") {
+        if (e.getSource() == Panel.delNote) {
 
             //如果列表的条目数量大于0
             if (tmp.getSize() > 0) {
@@ -52,7 +52,7 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
 
                     map.remove(list.getSelectedValue());
 
-                    String filename = "..\\note.csv";
+                    String filename = "..\\img\\note.csv";
                     File inMyPC = new File(filename);
                     try {
                         //文件追加，使写入的不会覆盖原本的内容
@@ -92,7 +92,8 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
             if (list.getSelectedIndex() != -1) {
                 if (e.getClickCount() == 2) {
                     String key = (String) list.getSelectedValue();
-                        EditWindow editWindow = new EditWindow(PtrlS, list, key, map);
+                        Main.window.dispose();
+                        editwindow1 editwindow = new editwindow1(PtrlS, list, key, map);
                         PtrlS = PtrlS.Clean();
 //                    }
                 }

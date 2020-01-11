@@ -3,11 +3,23 @@ import java.awt.*;
 import java.io.IOException;
 
 public class Main {
-    static MainMenu window;
+    //    private static MainMenu window;
 //    private MainMenu window;
+    static MainMenu window;
+
+    static {
+        try {
+            window = new MainMenu();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) throws IOException, AWTException {
         //新建窗口
-        MainMenu window = new MainMenu();
+
     }
 //    public static MainMenu getwindow(){
 //        return window;

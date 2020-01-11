@@ -10,23 +10,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Panel extends JPanel {
-    private JButton newNote, delNote, button_close;
+    static JButton newNote, delNote;
     private JList list;
     //    private Action_Listner listner;
     private DefaultListModel tmp = new DefaultListModel();
-    Map<String, String> map;
+    Map<String, String> map = new HashMap<String, String>();
     StackList PtrlS = new StackList();
-    ImageIcon image = new ImageIcon("..\\background.png");
-    Font menu_font = new Font("汉仪铸字木头人W", Font.PLAIN, 1);
+    ImageIcon image = new ImageIcon("..\\img\\background.png");
     Font article_font = new Font("汉仪铸字木头人W", Font.PLAIN, 16);
-    ImageIcon close_image = new ImageIcon("..\\关闭.png");
-    ImageIcon close_image1 = new ImageIcon("..\\关闭1.png");
-    ImageIcon mini_image = new ImageIcon("..\\缩小.png");
-    ImageIcon mini_image1 = new ImageIcon("..\\缩小1.png");
-    ImageIcon new_image = new ImageIcon("..\\新建.png");
-    ImageIcon new_image1 = new ImageIcon("..\\新建1.png");
-    ImageIcon del_image = new ImageIcon("..\\删除.png");
-    ImageIcon del_image1 = new ImageIcon("..\\删除1.png");
+    static ImageIcon close_image = new ImageIcon("..\\img\\关闭.png");
+    static ImageIcon close_image1 = new ImageIcon("..\\img\\关闭1.png");
+    static ImageIcon mini_image = new ImageIcon("..\\img\\缩小.png");
+    static ImageIcon mini_image1 = new ImageIcon("..\\img\\缩小1.png");
+    static ImageIcon new_image = new ImageIcon("..\\img\\新建.png");
+    static ImageIcon new_image1 = new ImageIcon("..\\img\\新建1.png");
+    static ImageIcon del_image = new ImageIcon("..\\img\\删除.png");
+    static ImageIcon del_image1 = new ImageIcon("..\\img\\删除1.png");
     JScrollPane jsp;
     Point point;
 
@@ -129,18 +128,7 @@ public class Panel extends JPanel {
 
         });
 
-        list.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent focusEvent) {
-
-            }
-
-            @Override
-            public void focusLost(FocusEvent focusEvent) {
-                list.setSelectedIndices(new int[]{});
-            }
-        });
-        Action_Listner listener = new Action_Listner(list, tmp, map);
+        Action_Listner listener = new Action_Listner(PtrlS, list, tmp, map, newNote, delNote);
         //为list添加监听，事件响应
         list.addMouseListener(listener);
         //设置列表的显示方式：用一列显示
@@ -150,7 +138,7 @@ public class Panel extends JPanel {
         list.setSelectionMode(0);
 
         //打开之后先读取文件中已有的项并添加到list中
-        String filename = "..\\note.csv";
+        String filename = "..\\img\\note.csv";
         File inMyPC = new File(filename);
 
         //如果不存在该文件，就新建一个
@@ -163,9 +151,11 @@ public class Panel extends JPanel {
         }
 
         //从文件中读取txt的键
-        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("..\\note.csv"), "UTF-8"));
+        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("..\\img\\note.csv"), "UTF-8"));
         String line = null;
         while ((line = in.readLine()) != null) {
+            line.replace("\r", "");
+            line.replace("\t", "");
 //            HashMap<String, String> item = new HashMap<String, String>();
             String[] itemArray = line.split(",");
             this.map.put(itemArray[0], itemArray[1]);
@@ -179,6 +169,7 @@ public class Panel extends JPanel {
         newNote.setBounds(18, 18, 20, 20);
         newNote.setBorderPainted(false);
         newNote.setContentAreaFilled(false);
+        newNote.addActionListener(listener);
         newNote.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -189,21 +180,6 @@ public class Panel extends JPanel {
             public void mouseExited(MouseEvent e) {
                 newNote.setIcon(new_image);
             }
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-                //弹出新的窗口输入新备忘录的标题
-                String str = JOptionPane.showInputDialog(list, "新建备忘录", JOptionPane.PLAIN_MESSAGE);
-
-                if (str != null) {
-                    //添加列表项目
-                    tmp.addElement(str);
-
-                    //将tmp中的内容同步到list
-                    list.setModel(tmp);
-                }
-            }
         });
 
 //        设置删除按钮的属性
@@ -212,6 +188,7 @@ public class Panel extends JPanel {
         delNote.setBounds(107, 18, 20, 20);
         delNote.setBorderPainted(false);
         delNote.setContentAreaFilled(false);
+        delNote.addActionListener(listener);
         delNote.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -221,49 +198,6 @@ public class Panel extends JPanel {
             @Override
             public void mouseExited(MouseEvent e) {
                 delNote.setIcon(del_image);
-            }
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (tmp.getSize() > 0) {
-
-                    //如果有内容被选中
-                    if (list.getSelectedIndex() != -1) {
-
-
-                        Panel.this.map.remove(list.getSelectedValue());
-
-                        String filename = "..\\note.csv";
-                        File inMyPC = new File(filename);
-                        try {
-                            //文件追加，使写入的不会覆盖原本的内容
-                            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(inMyPC), "UTF-8"));
-                            for (String key : Panel.this.map.keySet()) {
-                                String value = Panel.this.map.get(key);
-                                out.write(key);
-                                out.write(",");
-                                out.write(value);
-                                out.newLine();
-                                out.flush();
-                            }
-                            out.close();
-                        } catch (IOException ex) {
-                            ex.printStackTrace();
-                        }
-                        //将选中内容移除
-                        tmp.removeElementAt(list.getLeadSelectionIndex());
-
-                        //将tmp中的内容同步至list
-                        list.setModel(tmp);
-                        JOptionPane.showMessageDialog(list, "删除成功！");
-                    }
-
-                    //如果没有内容被选中，则弹出提示窗口
-                    else {
-                        JOptionPane.showMessageDialog(list, "请选择要删除的项");
-                    }
-                }
-
             }
         });
 
@@ -284,18 +218,12 @@ public class Panel extends JPanel {
 
         this.add(button_close);
         this.add(button_mini);
-//        this.add(list);
-//        this.add(jb);
         this.add(jsp);
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         image.paintIcon(this, g, 0, 0);
-//        image.paintIcon(jsp, g, 0, 0);
-//        image.paintIcon(list, g, 0, 0);
-//        Image image2 = new ImageIcon("..\\backgrou")
-//        g.drawImage(image, 0, 0, jsp.getWidth(), jsp.getHeight(), jsp);
     }
 }
 
