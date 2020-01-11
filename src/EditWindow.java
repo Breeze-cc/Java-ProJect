@@ -17,10 +17,10 @@ public class EditWindow extends JFrame implements ActionListener{
     StackList PtrlS;
     JList list;
     String key;
-    Map<String, String> map = new HashMap<String, String>();
+    Map<String, String> map;
 
     EditWindow(StackList Ptrl, JList list, String key, Map<String, String> map){
-
+        //System.out.println(map);
         this.map = map;
         this.list = list;
         this.PtrlS = Ptrl;
@@ -167,6 +167,7 @@ public class EditWindow extends JFrame implements ActionListener{
 
             //写入map中
             map.put(title, PtrlS.getDatas());
+            //System.out.println(map);
 
             //写入文件中
             try {
@@ -185,6 +186,7 @@ public class EditWindow extends JFrame implements ActionListener{
                 ex.printStackTrace();
             }
             JOptionPane.showMessageDialog(this, "保存成功！");
+
         }
     }
 }

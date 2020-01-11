@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2be96a9-e6b5-418e-87fb-c24bd57822eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/写 .png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/写.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/删除.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Action_Listner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action_Listner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Panel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StackList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StackList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EditWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditWindow.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +35,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
