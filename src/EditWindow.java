@@ -158,7 +158,7 @@ public class EditWindow extends JFrame implements ActionListener{
 
         //保存 按钮的触发器
         if (e.getActionCommand() == "保存"){
-            String filename = "note.csv";
+            String filename = "..\\note.csv";
             File inMyPC = new File(filename);
 
             //读取备忘录标题

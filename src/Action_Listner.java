@@ -52,7 +52,7 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
 
                     map.remove(list.getSelectedValue());
 
-                    String filename = "note.csv";
+                    String filename = "..\\note.csv";
                     File inMyPC = new File(filename);
                     try {
                         //文件追加，使写入的不会覆盖原本的内容
