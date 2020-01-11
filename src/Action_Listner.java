@@ -91,8 +91,10 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
                 String key = (String) list.getSelectedValue();
                 if (!map.containsKey(key)) {
                     EditWindow editWindow = new EditWindow(PtrlS, list);
+                    PtrlS = PtrlS.Clean();
                 } else {
                     EditWindow editWindow = new EditWindow(PtrlS, list, key, map);
+                    PtrlS = PtrlS.Clean();
                 }
             }
         }
