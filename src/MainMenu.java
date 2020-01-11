@@ -41,6 +41,7 @@ public class MainMenu extends JFrame {
         this.addWindowListener(
                 new WindowAdapter(){
                     public void windowIconified(WindowEvent e){
+                        //System.out.println("窗口最小化到托盘");
                         dispose();//窗口最小化时dispose该窗口
                     }
                 });
