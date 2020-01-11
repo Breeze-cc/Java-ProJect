@@ -1,17 +1,17 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
 public class MainMenu extends JFrame {
     private TrayIcon trayIcon;//托盘图标
     private SystemTray systemTray;//系统托盘
 
+    int mouseAtX = 0;
+    int mouseAtY = 0;
     public MainMenu() throws IOException, AWTException {
 
         systemTray = SystemTray.getSystemTray();//获得系统托盘的实例
@@ -28,6 +28,24 @@ public class MainMenu extends JFrame {
         this.add(new Panel());
         //隐藏窗体
         this.setUndecorated(true);
+        addMouseListener(new MouseAdapter()
+        {
+            public void mousePressed(MouseEvent e)
+            {
+                /*
+                 * 获取点击鼠标时的坐标
+                 */
+                mouseAtX = e.getPoint().x;
+                mouseAtY = e.getPoint().y;
+            }
+        });
+        addMouseMotionListener(new MouseMotionAdapter()
+        {
+            public void mouseDragged(MouseEvent e)
+            {
+                setLocation((e.getXOnScreen()-mouseAtX),(e.getYOnScreen()-mouseAtY));//设置拖拽后，窗口的位置
+            }
+        });
 //        new SystemTrayDemo(this);
         //重画，设置可见
         this.setVisible(true);
@@ -41,6 +59,7 @@ public class MainMenu extends JFrame {
         this.addWindowListener(
                 new WindowAdapter(){
                     public void windowIconified(WindowEvent e){
+                        //System.out.println("窗口最小化到托盘");
                         dispose();//窗口最小化时dispose该窗口
                     }
                 });
