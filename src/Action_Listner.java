@@ -52,7 +52,7 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
 
                     map.remove(list.getSelectedValue());
 
-                    String filename = "F:\\note.txt";
+                    String filename = "note.csv";
                     File inMyPC = new File(filename);
                     try {
                         //文件追加，使写入的不会覆盖原本的内容
@@ -92,13 +92,9 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
             if (list.getSelectedIndex() != -1) {
                 if (e.getClickCount() == 2) {
                     String key = (String) list.getSelectedValue();
-                    if (!map.containsKey(key)) {
-                        EditWindow editWindow = new EditWindow(PtrlS, list);
-                        PtrlS = PtrlS.Clean();
-                    } else {
                         EditWindow editWindow = new EditWindow(PtrlS, list, key, map);
                         PtrlS = PtrlS.Clean();
-                    }
+//                    }
                 }
             }
         }

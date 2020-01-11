@@ -11,7 +11,7 @@ class StackList {
     }
 
     public boolean isFull(){
-        if (Top == 41){
+        if (Top == 10000){
 
             //若一个区块输入多于四十个字符，则声音提示
             Toolkit.getDefaultToolkit().beep();

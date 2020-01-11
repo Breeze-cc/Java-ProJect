@@ -17,7 +17,7 @@ public class Panel extends JPanel {
     ImageIcon image = new ImageIcon("H:\\Code_Java\\ProJect\\background.png");
     Font menu_font = new Font("汉仪铸字木头人W", Font.PLAIN, 20);
     Font article_font = new Font("汉仪铸字木头人W", Font.PLAIN, 16);
-
+    public static String time;
     public Panel() throws IOException, FileNotFoundException {
         //设置Panel为边界布局
         this.setLayout(null);
@@ -74,7 +74,7 @@ public class Panel extends JPanel {
         list.setSelectionMode(0);
 
         //打开之后先读取文件中已有的项并添加到list中
-        String filename = "F:\\note.txt";
+        String filename = "note.csv";
         File inMyPC = new File(filename);
 
         //如果不存在该文件，就新建一个
@@ -87,7 +87,7 @@ public class Panel extends JPanel {
         }
 
         //从文件中读取txt的键
-        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("F:\\note.txt"), "UTF-8"));
+        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("note.csv"), "UTF-8"));
         String line = null;
         while ((line = in.readLine()) != null) {
 //            HashMap<String, String> item = new HashMap<String, String>();
