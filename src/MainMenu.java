@@ -33,7 +33,7 @@ public class MainMenu extends JFrame {
         this.setVisible(true);
 
         try {
-            trayIcon = new TrayIcon(ImageIO.read(new File("..\\笔记本.png")));
+            trayIcon = new TrayIcon(ImageIO.read(new File("..\\备忘录.png")));
             systemTray.add(trayIcon);//设置托盘的图标，0.gif与该类文件同一目录
         }
         catch (IOException e1) {e1.printStackTrace();}

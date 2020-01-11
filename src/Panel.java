@@ -26,6 +26,7 @@ public class Panel extends JPanel {
     ImageIcon close_image1 = new ImageIcon("..\\关闭1.png");
     ImageIcon mini_image = new ImageIcon("..\\缩小.png");
     ImageIcon mini_image1 = new ImageIcon("..\\缩小1.png");
+    ImageIcon head_image = new ImageIcon("..\\Head.png");
     public Panel() throws IOException, FileNotFoundException {
         //设置Panel为边界布局
         this.setLayout(null);
@@ -186,21 +187,22 @@ public class Panel extends JPanel {
                 delNote.setBackground(new Color(250, 128, 114));
             }
         });
+        //设置列表所占面积的位置和大小
+        list.setBounds(8, 100, 300, 339);
+
+        
         //将 “新建” 和 “删除” 添加到画板上
         this.add(newNote);
         this.add(delNote);
         this.add(button_close);
         this.add(button_mini);
-
-        //设置列表所占面积的位置和大小
-        list.setBounds(8, 100, 300, 339);
-
-        //将列表添加到画板上
         this.add(list);
+
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        head_image.paintIcon(this, g, 0, 0);
         image.paintIcon(this, g, 0, 0);
         image.paintIcon(list, g, 0, 0);
     }
