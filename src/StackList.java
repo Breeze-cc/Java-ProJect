@@ -2,7 +2,7 @@ import java.awt.*;
 import java.util.Stack;
 
 class StackList {
-    private char Data[] = new char[41];
+    private char Data[] = new char[10000];
     private int Top;
 
     //构造方法

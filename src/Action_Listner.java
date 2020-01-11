@@ -31,11 +31,13 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
             //弹出新的窗口输入新备忘录的标题
             String str = JOptionPane.showInputDialog(list, "新建备忘录", JOptionPane.PLAIN_MESSAGE);
 
-            //添加列表项目
-            tmp.addElement(str);
+            if (str != null) {
+                //添加列表项目
+                tmp.addElement(str);
 
-            //将tmp中的内容同步到list
-            list.setModel(tmp);
+                //将tmp中的内容同步到list
+                list.setModel(tmp);
+            }
         }
 
         //如果触发响应的器件上的字符串是 “删除”
@@ -87,14 +89,16 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == list) {
-            if (e.getClickCount() == 2) {
-                String key = (String) list.getSelectedValue();
-                if (!map.containsKey(key)) {
-                    EditWindow editWindow = new EditWindow(PtrlS, list);
-                    PtrlS = PtrlS.Clean();
-                } else {
-                    EditWindow editWindow = new EditWindow(PtrlS, list, key, map);
-                    PtrlS = PtrlS.Clean();
+            if (list.getSelectedIndex() != -1) {
+                if (e.getClickCount() == 2) {
+                    String key = (String) list.getSelectedValue();
+                    if (!map.containsKey(key)) {
+                        EditWindow editWindow = new EditWindow(PtrlS, list);
+                        PtrlS = PtrlS.Clean();
+                    } else {
+                        EditWindow editWindow = new EditWindow(PtrlS, list, key, map);
+                        PtrlS = PtrlS.Clean();
+                    }
                 }
             }
         }

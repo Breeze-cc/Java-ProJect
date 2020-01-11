@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2be96a9-e6b5-418e-87fb-c24bd57822eb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/写 .png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/写.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/删除.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Action_Listner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action_Listner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Panel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StackList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StackList.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,10 +115,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="615" y="184" width="690" height="672" key="#Main/0.0.1920.1040@0.0.1920.1040" timestamp="1578576525366" />
-    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1578588834726">
+    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1578658293271">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1578588834726" />
+    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1578658293271" />
     <state x="803" y="412" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1577883278680">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -120,26 +127,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578574540260" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1578657160869">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578657160869" />
     <state x="732" y="264" key="FileChooserDialogImpl" timestamp="1578590167613">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="732" y="264" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578590167613" />
-    <state width="937" height="337" key="GridCell.Tab.0.bottom" timestamp="1578621771807">
+    <state width="1875" height="279" key="GridCell.Tab.0.bottom" timestamp="1578732443692">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="337" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578621771807" />
-    <state width="937" height="337" key="GridCell.Tab.0.center" timestamp="1578621771806">
+    <state width="1875" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578732443692" />
+    <state width="1875" height="279" key="GridCell.Tab.0.center" timestamp="1578732443692">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="337" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578621771806" />
-    <state width="937" height="337" key="GridCell.Tab.0.left" timestamp="1578621771806">
+    <state width="1875" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578732443692" />
+    <state width="1875" height="279" key="GridCell.Tab.0.left" timestamp="1578732443692">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="337" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578621771806" />
-    <state width="937" height="337" key="GridCell.Tab.0.right" timestamp="1578621771806">
+    <state width="1875" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578732443692" />
+    <state width="1875" height="279" key="GridCell.Tab.0.right" timestamp="1578732443692">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="337" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578621771806" />
+    <state width="1875" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578732443692" />
     <state width="937" height="337" key="GridCell.Tab.1.bottom" timestamp="1578621596065">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -180,10 +191,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1577892663200" />
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1578619008769">
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1578731771410">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1578619008769" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1578731771410" />
     <state x="682" y="437" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1577777258606">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
