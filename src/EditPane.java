@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,12 +10,12 @@ import java.io.*;
 import java.util.Map;
 
 public class EditPane extends JPanel implements ActionListener {
-    static JTextArea showMessage;
-    JButton add, delete, allDelete, save, back, finish;
-    StackList PtrlS;
-    JList list;
-    String key;
-    Map<String, String> map;
+    static JTextPane showMessage, timetext;
+    private JButton add, delete, allDelete, save, back, finish, color_button, showtime;
+    private StackList PtrlS;
+    private JList list;
+    private String key;
+    private Map<String, String> map;
 
     ImageIcon image_add = new ImageIcon("..\\img\\add.png");
     ImageIcon image_add1 = new ImageIcon("..\\img\\add1.png");
@@ -28,7 +30,9 @@ public class EditPane extends JPanel implements ActionListener {
     ImageIcon image = new ImageIcon("..\\img\\background.png");
     ImageIcon image_finish = new ImageIcon("..\\img\\finish.png");
     ImageIcon image_finish1 = new ImageIcon("..\\img\\finish1.png");
-    Font font1 = new Font("华康娃娃体W5(P)", Font.PLAIN, 20);
+    ImageIcon image_color = new ImageIcon("..\\img\\color.png");
+    ImageIcon image_color1 = new ImageIcon("..\\img\\color1.png");
+    Font font1 = new Font("华康娃娃体W5(P)", Font.PLAIN, 16);
 
     public EditPane(StackList PtrlS, JList list, String key, Map<String, String> map) {
 
@@ -37,31 +41,38 @@ public class EditPane extends JPanel implements ActionListener {
         this.map = map;
         this.PtrlS = PtrlS;
 
+        //如果map的键值不为null，防止产生空指针异常
         if (map.get(key) != null) {
-            for (int i = 0; i < map.get(key).length();i++) {
-                if (map.get(key).charAt(i) == '\u0000'){
+            for (int i = 0; i < map.get(key).length(); i++) {
+                if (map.get(key).charAt(i) == '\u0000') {
                     break;
                 }
+                //每次打开程序初始化，将文件中的数据读入界面中显示
                 PtrlS.Push(map.get(key).charAt(i));
             }
         }
 
-        //配置六个按钮：返回，完成，添加，删除，保存，清空
-        showMessage = new JTextArea();
+        //初始化六个按钮：返回，完成，添加，删除，保存，清空
+        showMessage = new JTextPane();
         add = new JButton();
         delete = new JButton();
         allDelete = new JButton();
         save = new JButton();
         back = new JButton();
         finish = new JButton();
+        color_button = new JButton();
+        showtime = new JButton();
+        timetext = new JTextPane();
 
+        //设置为绝对布局，方便美化
         this.setLayout(null);
+
         //配置文本框
         showMessage.setFont(font1);
         showMessage.setBounds(15, 50, 280, 200);
         showMessage.setOpaque(false);
-        showMessage.setLineWrap(true);
         showMessage.setEditable(false);
+        //showMessage的初始文本为栈中的元素
         showMessage.setText(PtrlS.getDatas());
         this.add(showMessage);
 
@@ -71,6 +82,7 @@ public class EditPane extends JPanel implements ActionListener {
         add.setBorderPainted(false);
         add.setContentAreaFilled(false);
         add.addActionListener(this);
+        //设置悬停效果
         add.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -86,7 +98,7 @@ public class EditPane extends JPanel implements ActionListener {
 
         //添加 退格 按钮
         delete.setIcon(image_bk);
-        delete.setBounds(299, 460, 20, 20);
+        delete.setBounds(287, 460, 20, 20);
         delete.addActionListener(this);
         delete.setBorderPainted(false);
         delete.setContentAreaFilled(false);
@@ -105,7 +117,7 @@ public class EditPane extends JPanel implements ActionListener {
 
         //配置 清空 按钮
         allDelete.setIcon(image_alldel);
-        allDelete.setBounds(199, 460, 20, 20);
+        allDelete.setBounds(225, 460, 20, 20);
         allDelete.addActionListener(this);
         allDelete.addMouseListener(new MouseAdapter() {
             @Override
@@ -124,7 +136,7 @@ public class EditPane extends JPanel implements ActionListener {
 
         //配置 保存 按钮
         save.setIcon(image_save);
-        save.setBounds(107, 460, 20, 20);
+        save.setBounds(90, 460, 20, 20);
         save.setContentAreaFilled(false);
         save.setBorderPainted(false);
         save.addActionListener(this);
@@ -140,6 +152,25 @@ public class EditPane extends JPanel implements ActionListener {
             }
         });
         this.add(save);
+
+        //配置 色彩 按钮
+        color_button.setIcon(image_color);
+        color_button.setBounds(155, 460, 20, 20);
+        color_button.setContentAreaFilled(false);
+        color_button.setBorderPainted(false);
+        color_button.addActionListener(this);
+        color_button.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                color_button.setIcon(image_color1);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                color_button.setIcon(image_color);
+            }
+        });
+        this.add(color_button);
 
         //添加 返回 按钮
         back.setIcon(image_back);
@@ -180,16 +211,18 @@ public class EditPane extends JPanel implements ActionListener {
         this.add(finish);
         this.setVisible(true);
     }
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         image.paintIcon(this, g, 0, 0);
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
+
         //添加 按钮的触发器
         if (e.getSource() == add) {
             new Dialog("      请输入添加的内容", PtrlS, 1);
-//            String str = DialogPanel.textStr;
         }
 
         //退格 按钮的触发器
@@ -208,14 +241,10 @@ public class EditPane extends JPanel implements ActionListener {
         if (e.getSource() == save) {
             String filename = "..\\note.txt";
             File inMyPC = new File(filename);
-
             //读取备忘录标题
             String title = (String) list.getSelectedValue();
-
             //写入map中
             map.put(title, PtrlS.getDatas());
-            //System.out.println(map);
-
             //写入文件中
             try {
                 BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(inMyPC), "UTF-8"));
@@ -231,24 +260,26 @@ public class EditPane extends JPanel implements ActionListener {
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
-            JOptionPane.showMessageDialog(this, "保存成功！");
+            //提示窗口
+            new notice("保存成功！");
         }
-        if (e.getSource() == back){
 
+        //返回 按钮的触发器
+        if (e.getSource() == back) {
+            //关闭当前界面，打开主界面
             SwingUtilities.getWindowAncestor(Panel.delNote).setVisible(true);
             SwingUtilities.getWindowAncestor(this).dispose();
         }
-        if (e.getSource() == finish){
+
+        //完成 按钮的触发器（保存加返回）
+        if (e.getSource() == finish) {
+            //前半部分为保存
             String filename = "..\\note.txt";
             File inMyPC = new File(filename);
-
             //读取备忘录标题
             String title = (String) list.getSelectedValue();
-
             //写入map中
             map.put(title, PtrlS.getDatas());
-            //System.out.println(map);
-
             //写入文件中
             try {
                 BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(inMyPC), "UTF-8"));
@@ -264,8 +295,19 @@ public class EditPane extends JPanel implements ActionListener {
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
+            //返回
             SwingUtilities.getWindowAncestor(this).dispose();
             SwingUtilities.getWindowAncestor(Panel.delNote).setVisible(true);
+        }
+
+        //颜色 按钮的触发器
+        if (e.getSource() == color_button) {
+            Color color1 = JColorChooser.showDialog(null, "color title", Color.BLACK);
+
+            SimpleAttributeSet attr = new SimpleAttributeSet();
+            StyleConstants.setForeground(attr, color1);
+            //设置颜色属性，参数为color类型。
+            showMessage.setCharacterAttributes(attr, true);
         }
     }
 }

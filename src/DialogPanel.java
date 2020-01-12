@@ -14,10 +14,9 @@ public class DialogPanel extends JPanel {
     private ImageIcon NO1 = new ImageIcon("..\\img\\canle1.png");
     private ImageIcon background = new ImageIcon("..\\img\\background.png");
     private JTextArea system;
-    static JTextArea user;
     private StackList PtrlS;
     private int index = 0;
-//    private static String textStr;
+    static JTextArea user;
 
     DialogPanel(String s, StackList PtrlS, int index) {
 
@@ -25,6 +24,8 @@ public class DialogPanel extends JPanel {
         this.PtrlS = PtrlS;
         this.setLayout(null);
 
+
+        //确定按钮的属性
         isOk = new JButton();
         isOk.setIcon(OK);
         isOk.setBounds(30, 200, 20, 20);
@@ -44,10 +45,9 @@ public class DialogPanel extends JPanel {
         isOk.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                //分类显示不同的信息
                 if (index == 1) {
                     String str = user.getText();
-
                     if (str != null) {
                         for (int i = 0; i < str.length(); i++) {
                             PtrlS.Push(str.charAt(i));
@@ -55,13 +55,11 @@ public class DialogPanel extends JPanel {
                         EditPane.showMessage.setText(PtrlS.getDatas());
                     }
                     SwingUtilities.getWindowAncestor(isOk).setVisible(false);
-                }
-                else{
+                } else {
                     String str = user.getText();
                     if (str != null) {
-                        //添加列表项目
-                        Panel.tmp.addElement(str);
-
+                        //将标题和时间都存入列表中
+                        Panel.tmp.addElement(str + "    " + Time.getTime());
                         //将tmp中的内容同步到list
                         Panel.list.setModel(Panel.tmp);
                     }
@@ -71,6 +69,7 @@ public class DialogPanel extends JPanel {
         });
         this.add(isOk);
 
+        //设置取消按钮的属性
         isNo = new JButton();
         isNo.setIcon(NO);
         isNo.setBounds(240, 200, 20, 20);
@@ -81,7 +80,6 @@ public class DialogPanel extends JPanel {
             public void mouseEntered(MouseEvent e) {
                 isNo.setIcon(NO1);
             }
-
             @Override
             public void mouseExited(MouseEvent e) {
                 isNo.setIcon(NO);
@@ -95,6 +93,7 @@ public class DialogPanel extends JPanel {
         });
         this.add(isNo);
 
+        //设置系统显示的文本
         system = new JTextArea();
         system.setOpaque(false);
         system.setBounds(30, 30, 250, 50);
@@ -104,23 +103,23 @@ public class DialogPanel extends JPanel {
         system.setText(s);
         this.add(system);
 
-        this.setVisible(true);
-
+        //设置用户输入的文本信息
         user = new JTextArea();
         user.setOpaque(false);
         user.setBorder(BorderFactory.createLineBorder(Color.lightGray));
         user.setBounds(30, 130, 250, 30);
         user.setFont(new Font("华康娃娃体W5", Font.PLAIN, 14));
         user.setLineWrap(true);
-        if (index == 1) {
-            user.setText("在此输入要添加的字符串");
-        }
-        else {
-            user.setText("在此输入新备忘录标题");
-        }
         this.add(user);
+        if (index == 1) {
+            user.setText("输入字符串");
+        } else if (index == 2) {
+            user.setText("输入标题");
+        }
+        this.setVisible(true);
     }
 
+    //用画笔将图片画到Panel上面
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         background.paintIcon(this, g, 0, 0);

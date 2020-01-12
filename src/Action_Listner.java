@@ -16,6 +16,7 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
     private Map<String, String> map;
     private StackList PtrlS;
     private MainMenu jf;
+
     public Action_Listner(StackList PtrlS, JList list, DefaultListModel tmp, Map<String, String> map, MainMenu jf) {
         this.list = list;
         this.tmp = tmp;
@@ -23,33 +24,39 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
         this.PtrlS = PtrlS;
         this.jf = jf;
     }
-    JLabel jump;
+
+    //重写各种相应
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        //如果触发响应的器件上的字符串是 “新建”
+        //新建按钮的触发器
         if (e.getSource() == Panel.newNote) {
             //弹出新的窗口输入新备忘录的标题
-//            String str = JOptionPane.showInputDialog(list, jump, "新建备忘录", JOptionPane.PLAIN_MESSAGE);
+            //index决定是新建、添加还是提醒窗口
             new Dialog("      请输入新备忘录标题", PtrlS, 2);
         }
 
-        //如果触发响应的器件上的字符串是 “删除”
+        //删除按钮的触发器
         if (e.getSource() == Panel.delNote) {
-
             //如果列表的条目数量大于0
             if (tmp.getSize() > 0) {
-
                 //如果有内容被选中
                 if (list.getSelectedIndex() != -1) {
-
-
+                    //从map中移除被选中的条目先
                     map.remove(list.getSelectedValue());
-
-                    String filename = "..\\img\\note.txt";
+                    //打开文件等
+                    String filename = "..\\note.txt";
                     File inMyPC = new File(filename);
+                    if (inMyPC.exists()){
+                        boolean a = inMyPC.delete();
+                        try {
+                            inMyPC.createNewFile();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
                     try {
-                        //文件追加，使写入的不会覆盖原本的内容
+                        //使写入的会覆盖原本的内容
                         BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(inMyPC), "UTF-8"));
                         for (String key : map.keySet()) {
                             String value = map.get(key);
@@ -59,27 +66,20 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
                             out.newLine();
                             out.flush();
                         }
-                        out.newLine();
-                        out.flush();
                         out.close();
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
-                    //将选中内容移除
+                    //将选中内容从List移除
                     tmp.removeElementAt(list.getLeadSelectionIndex());
 
                     //将tmp中的内容同步至list
                     list.setModel(tmp);
-                    JOptionPane.showMessageDialog(list, "删除成功！");
-                }
-
-                //如果没有内容被选中，则弹出提示窗口
-                else {
-                    JOptionPane.showMessageDialog(list, "请选择要删除的项");
+                    new notice("删除成功！");
                 }
             }
         }
-    }
+     }
 
     //重载方法,鼠标双击事件
     @Override

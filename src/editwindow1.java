@@ -23,8 +23,8 @@ public class editwindow1 extends JFrame {
         this.jf = jf;
 
         //设置大小
-        this.setBounds(jf.mouseAtX, jf.mouseAtY, 325, 485);
-        //设置相对位置
+        this.setSize(325, 485);
+        //设置相对位置(居中)
         this.setLocationRelativeTo(null);
         //设置固定大小
         this.setResizable(false);
@@ -34,12 +34,9 @@ public class editwindow1 extends JFrame {
         this.add(new EditPane(PtrlS, list, key, map));
         //隐藏窗体
         this.setUndecorated(true);
-
         addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
-                /*
-                 * 获取点击鼠标时的坐标
-                 */
+                //获取点击鼠标时的坐标
                 mouseAtX = e.getPoint().x;
                 mouseAtY = e.getPoint().y;
             }
@@ -50,6 +47,5 @@ public class editwindow1 extends JFrame {
             }
         });
         this.setVisible(true);
-
     }
 }

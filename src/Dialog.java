@@ -10,8 +10,10 @@ public class Dialog extends JDialog {
     private int mouseAtY = 0;
     private StackList PtrlS;
     private int index = 0;
+
     public Dialog(String s, StackList PtrlS, int index) {
 
+        //设置窗体基本属性
         this.index = index;
         this.PtrlS = PtrlS;
         this.setSize(300, 250);
@@ -19,11 +21,13 @@ public class Dialog extends JDialog {
         this.setUndecorated(true);
         this.add(new DialogPanel(s, PtrlS, index));
         this.setLocationRelativeTo(null);
+
+        /*
+        设置可拖动
+         */
         addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
-                /*
-                 * 获取点击鼠标时的坐标
-                 */
+                //获取点击时鼠标坐标
                 mouseAtX = e.getPoint().x;
                 mouseAtY = e.getPoint().y;
             }
@@ -35,5 +39,4 @@ public class Dialog extends JDialog {
         });
         this.setVisible(true);
     }
-
 }
