@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.Map;
 
 public class EditPane extends JPanel implements ActionListener {
-    JTextArea showMessage;
+    static JTextArea showMessage;
     JButton add, delete, allDelete, save, back, finish;
     StackList PtrlS;
     JList list;
@@ -38,8 +38,8 @@ public class EditPane extends JPanel implements ActionListener {
         this.PtrlS = PtrlS;
 
         if (map.get(key) != null) {
-            for (int i = 0; ;i++) {
-                if (map.get(key).charAt(i) == '\0'){
+            for (int i = 0; i < map.get(key).length();i++) {
+                if (map.get(key).charAt(i) == '\u0000'){
                     break;
                 }
                 PtrlS.Push(map.get(key).charAt(i));
@@ -188,14 +188,8 @@ public class EditPane extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         //添加 按钮的触发器
         if (e.getSource() == add) {
-            new Dialog("      请输入添加的内容");
-            String str = DialogPanel.textStr;
-            if (str != null) {
-                for (int i = 0; i < str.length(); i++) {
-                    PtrlS.Push(str.charAt(i));
-                }
-                showMessage.setText(PtrlS.getDatas());
-            }
+            new Dialog("      请输入添加的内容", PtrlS, 1);
+//            String str = DialogPanel.textStr;
         }
 
         //退格 按钮的触发器
@@ -227,9 +221,9 @@ public class EditPane extends JPanel implements ActionListener {
                 BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(inMyPC), "UTF-8"));
                 for (String key : map.keySet()) {
                     String value = map.get(key);
-                    out.write(key);
+                    out.write(key.trim());
                     out.write("€");
-                    out.write(value);
+                    out.write(value.trim());
                     out.newLine();
                     out.flush();
                 }
@@ -260,9 +254,9 @@ public class EditPane extends JPanel implements ActionListener {
                 BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(inMyPC), "UTF-8"));
                 for (String key : map.keySet()) {
                     String value = map.get(key);
-                    out.write(key);
+                    out.write(key.trim());
                     out.write("€");
-                    out.write(value);
+                    out.write(value.trim());
                     out.newLine();
                     out.flush();
                 }

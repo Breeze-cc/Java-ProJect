@@ -11,13 +11,13 @@ import java.util.Map;
 
 public class Panel extends JPanel {
     static JButton newNote, delNote;
-    private JList list;
+    static JList list;
     //    private Action_Listner listner;
-    private DefaultListModel tmp = new DefaultListModel();
+    static DefaultListModel tmp = new DefaultListModel();
     Map<String, String> map = new HashMap<String, String>();
     StackList PtrlS = new StackList();
     ImageIcon image = new ImageIcon("..\\img\\background.png");
-    Font article_font = new Font("汉仪铸字木头人W", Font.PLAIN, 16);
+    Font article_font = new Font("华康娃娃体W5", Font.PLAIN, 16);
     static ImageIcon close_image = new ImageIcon("..\\img\\close.png");
     static ImageIcon close_image1 = new ImageIcon("..\\img\\close1.png");
     static ImageIcon mini_image = new ImageIcon("..\\img\\mini.png");
@@ -91,7 +91,7 @@ public class Panel extends JPanel {
         list.setFixedCellHeight(40);    //间距
         list.setFont(article_font);     //字体
         list.setOpaque(false);
-        list.setSelectionBackground(new Color(196, 194, 213, 78));     //设置选中条目的颜色
+        list.setSelectionBackground(new Color(49, 213, 90, 78));     //设置选中条目的颜色
         //设置未选中条目的颜色以及边框
         list.setCellRenderer(new DefaultListCellRenderer() {
 
@@ -99,21 +99,14 @@ public class Panel extends JPanel {
             public Component getListCellRendererComponent(JList list, Object value, int index,
                                                           boolean isSelected, boolean cellHasFocus) {
                 Component c = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-                this.addMouseListener(new MouseAdapter() {
-                    @Override
-                    public void mouseEntered(MouseEvent e) {
-                        setBackground(Color.ORANGE);
-                    }
-
-                    @Override
-                    public void mouseExited(MouseEvent e) {
-                        super.mouseExited(e);
-                    }
-                });
-                Border line_border = BorderFactory.createLineBorder(new Color(153, 153, 153), 1, false);
+                for (int i = 0; i < list.getModel().getSize(); i++){
+                    setOpaque(false);
+                }
+                Border border1 = BorderFactory.createEtchedBorder();
+                Border line_border = BorderFactory.createLineBorder(new Color(241,240,240), 5, false);
 //                Border raise_border = BorderFactory.createRaisedBevelBorder();
-                Border title_border = BorderFactory.createTitledBorder(null, Time.getTime(), TitledBorder.LEFT, TitledBorder.TOP, new Font("微软雅黑", Font.ITALIC, 12), new Color(0, 0, 0));
-                Border b1 = BorderFactory.createCompoundBorder(line_border, title_border);
+                Border title_border = BorderFactory.createTitledBorder(line_border, Time.getTime(), TitledBorder.LEFT, TitledBorder.TOP, new Font("微软雅黑", Font.ITALIC, 12), new Color(0, 0, 0));
+                Border b1 = BorderFactory.createCompoundBorder(line_border, border1);
 //                setBorder(BorderFactory.createCompoundBorder();
                 setBorder(b1);
                 setHorizontalAlignment(SwingConstants.CENTER);
@@ -150,9 +143,17 @@ public class Panel extends JPanel {
         BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("..\\note.txt"), "UTF-8"));
         String line = null;
         while ((line = in.readLine()) != null) {
-            String[] itemArray = line.split("€");
-            this.map.put(itemArray[0], itemArray[1]);
-            tmp.addElement(itemArray[0]);
+            try {
+                String[] itemArray = line.split("€");
+                if (itemArray != null)
+                    this.map.put(itemArray[0], itemArray[1]);
+                tmp.addElement(itemArray[0]);
+            }
+            catch (ArrayIndexOutOfBoundsException e){
+                String item[] = line.split("€");
+                this.map.put(item[0], "");
+                tmp.addElement(item[0]);
+            }
         }
         list.setModel(tmp);
 

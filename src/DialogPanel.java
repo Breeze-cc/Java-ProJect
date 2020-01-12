@@ -6,18 +6,23 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class DialogPanel extends JPanel {
-    JButton isOk;
-    JButton isNo;
-    ImageIcon OK = new ImageIcon("..\\img\\OK.png");
-    ImageIcon OK1 = new ImageIcon("..\\img\\OK1.png");
-    ImageIcon NO = new ImageIcon("..\\img\\cancle.png");
-    ImageIcon NO1 = new ImageIcon("..\\img\\canle1.png");
-    ImageIcon background = new ImageIcon("..\\img\\background.png");
-    JTextArea system;
-    JTextArea user;
-    static String textStr;
+    private JButton isOk;
+    private JButton isNo;
+    private ImageIcon OK = new ImageIcon("..\\img\\OK.png");
+    private ImageIcon OK1 = new ImageIcon("..\\img\\OK1.png");
+    private ImageIcon NO = new ImageIcon("..\\img\\cancle.png");
+    private ImageIcon NO1 = new ImageIcon("..\\img\\canle1.png");
+    private ImageIcon background = new ImageIcon("..\\img\\background.png");
+    private JTextArea system;
+    static JTextArea user;
+    private StackList PtrlS;
+    private int index = 0;
+//    private static String textStr;
 
-    DialogPanel(String s){
+    DialogPanel(String s, StackList PtrlS, int index) {
+
+        this.index = index;
+        this.PtrlS = PtrlS;
         this.setLayout(null);
 
         isOk = new JButton();
@@ -39,8 +44,29 @@ public class DialogPanel extends JPanel {
         isOk.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                textStr = user.getText();
-                SwingUtilities.getWindowAncestor(isOk).setVisible(false);
+
+                if (index == 1) {
+                    String str = user.getText();
+
+                    if (str != null) {
+                        for (int i = 0; i < str.length(); i++) {
+                            PtrlS.Push(str.charAt(i));
+                        }
+                        EditPane.showMessage.setText(PtrlS.getDatas());
+                    }
+                    SwingUtilities.getWindowAncestor(isOk).setVisible(false);
+                }
+                else{
+                    String str = user.getText();
+                    if (str != null) {
+                        //添加列表项目
+                        Panel.tmp.addElement(str);
+
+                        //将tmp中的内容同步到list
+                        Panel.list.setModel(Panel.tmp);
+                    }
+                    SwingUtilities.getWindowAncestor(user).setVisible(false);
+                }
             }
         });
         this.add(isOk);
@@ -86,7 +112,12 @@ public class DialogPanel extends JPanel {
         user.setBounds(30, 130, 250, 30);
         user.setFont(new Font("华康娃娃体W5", Font.PLAIN, 14));
         user.setLineWrap(true);
-        user.setText("在此输入要添加的字符串");
+        if (index == 1) {
+            user.setText("在此输入要添加的字符串");
+        }
+        else {
+            user.setText("在此输入新备忘录标题");
+        }
         this.add(user);
     }
 

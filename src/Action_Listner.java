@@ -30,15 +30,8 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
         //如果触发响应的器件上的字符串是 “新建”
         if (e.getSource() == Panel.newNote) {
             //弹出新的窗口输入新备忘录的标题
-            String str = JOptionPane.showInputDialog(list, jump, "新建备忘录", JOptionPane.PLAIN_MESSAGE);
-
-            if (str != null) {
-                //添加列表项目
-                tmp.addElement(str);
-
-                //将tmp中的内容同步到list
-                list.setModel(tmp);
-            }
+//            String str = JOptionPane.showInputDialog(list, jump, "新建备忘录", JOptionPane.PLAIN_MESSAGE);
+            new Dialog("      请输入新备忘录标题", PtrlS, 2);
         }
 
         //如果触发响应的器件上的字符串是 “删除”
@@ -60,12 +53,14 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
                         BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(inMyPC), "UTF-8"));
                         for (String key : map.keySet()) {
                             String value = map.get(key);
-                            out.write(key);
+                            out.write(key.trim());
                             out.write("€");
-                            out.write(value);
+                            out.write(value.trim());
                             out.newLine();
                             out.flush();
                         }
+                        out.newLine();
+                        out.flush();
                         out.close();
                     } catch (IOException ex) {
                         ex.printStackTrace();
