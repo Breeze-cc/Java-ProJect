@@ -18,14 +18,14 @@ public class Panel extends JPanel {
     StackList PtrlS = new StackList();
     ImageIcon image = new ImageIcon("..\\img\\background.png");
     Font article_font = new Font("汉仪铸字木头人W", Font.PLAIN, 16);
-    static ImageIcon close_image = new ImageIcon("..\\img\\关闭.png");
-    static ImageIcon close_image1 = new ImageIcon("..\\img\\关闭1.png");
-    static ImageIcon mini_image = new ImageIcon("..\\img\\缩小.png");
-    static ImageIcon mini_image1 = new ImageIcon("..\\img\\缩小1.png");
-    static ImageIcon new_image = new ImageIcon("..\\img\\新建.png");
-    static ImageIcon new_image1 = new ImageIcon("..\\img\\新建1.png");
-    static ImageIcon del_image = new ImageIcon("..\\img\\删除.png");
-    static ImageIcon del_image1 = new ImageIcon("..\\img\\删除1.png");
+    static ImageIcon close_image = new ImageIcon("..\\img\\close.png");
+    static ImageIcon close_image1 = new ImageIcon("..\\img\\close1.png");
+    static ImageIcon mini_image = new ImageIcon("..\\img\\mini.png");
+    static ImageIcon mini_image1 = new ImageIcon("..\\img\\mini1.png");
+    static ImageIcon new_image = new ImageIcon("..\\img\\new.png");
+    static ImageIcon new_image1 = new ImageIcon("..\\img\\new1.png");
+    static ImageIcon del_image = new ImageIcon("..\\img\\delete.png");
+    static ImageIcon del_image1 = new ImageIcon("..\\img\\delete1.png");
     JScrollPane jsp;
     MainMenu jf;
 

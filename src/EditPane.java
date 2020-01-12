@@ -15,19 +15,19 @@ public class EditPane extends JPanel implements ActionListener {
     String key;
     Map<String, String> map;
 
-    ImageIcon image_add = new ImageIcon("..\\img\\添加.png");
-    ImageIcon image_add1 = new ImageIcon("..\\img\\添加1.png");
-    ImageIcon image_bk = new ImageIcon("..\\img\\退格.png");
-    ImageIcon image_bk1 = new ImageIcon("..\\img\\退格1.png");
-    ImageIcon image_alldel = new ImageIcon("..\\img\\清空.png");
-    ImageIcon image_alldel1 = new ImageIcon("..\\img\\清空1.png");
-    ImageIcon image_save = new ImageIcon("..\\img\\保存.png");
-    ImageIcon image_save1 = new ImageIcon("..\\img\\保存1.png");
-    ImageIcon image_back = new ImageIcon("..\\img\\返回.png");
-    ImageIcon image_back1 = new ImageIcon("..\\img\\返回1.png");
+    ImageIcon image_add = new ImageIcon("..\\img\\add.png");
+    ImageIcon image_add1 = new ImageIcon("..\\img\\add1.png");
+    ImageIcon image_bk = new ImageIcon("..\\img\\backspace.png");
+    ImageIcon image_bk1 = new ImageIcon("..\\img\\backspace1.png");
+    ImageIcon image_alldel = new ImageIcon("..\\img\\clear.png");
+    ImageIcon image_alldel1 = new ImageIcon("..\\img\\clear1.png");
+    ImageIcon image_save = new ImageIcon("..\\img\\save.png");
+    ImageIcon image_save1 = new ImageIcon("..\\img\\save1.png");
+    ImageIcon image_back = new ImageIcon("..\\img\\back.png");
+    ImageIcon image_back1 = new ImageIcon("..\\img\\back1.png");
     ImageIcon image = new ImageIcon("..\\img\\background.png");
-    ImageIcon image_finish = new ImageIcon("..\\img\\完成.png");
-    ImageIcon image_finish1 = new ImageIcon("..\\img\\完成1.png");
+    ImageIcon image_finish = new ImageIcon("..\\img\\finish.png");
+    ImageIcon image_finish1 = new ImageIcon("..\\img\\finish1.png");
     Font font1 = new Font("华康娃娃体W5(P)", Font.PLAIN, 20);
 
     public EditPane(StackList PtrlS, JList list, String key, Map<String, String> map) {
@@ -188,16 +188,14 @@ public class EditPane extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         //添加 按钮的触发器
         if (e.getSource() == add) {
-            new Dialog("请输入添加的内容");
-//            UIManager UI = new UIManager();
-//            UI.put("OptionPane.background", Color.lightGray);
-//            String str = JOptionPane.showInputDialog(this,  "请输入要添加的内容", JOptionPane.PLAIN_MESSAGE);
-//            if (str != null) {
-//                for (int i = 0; i < str.length(); i++) {
-//                    PtrlS.Push(str.charAt(i));
-//                }
-//                showMessage.setText(PtrlS.getDatas());
-//            }
+            new Dialog("      请输入添加的内容");
+            String str = DialogPanel.textStr;
+            if (str != null) {
+                for (int i = 0; i < str.length(); i++) {
+                    PtrlS.Push(str.charAt(i));
+                }
+                showMessage.setText(PtrlS.getDatas());
+            }
         }
 
         //退格 按钮的触发器

@@ -46,7 +46,7 @@ public class MainMenu extends JFrame {
         this.setVisible(true);
 
         try {
-            trayIcon = new TrayIcon(ImageIO.read(new File("..\\img\\备忘录.png")));
+            trayIcon = new TrayIcon(ImageIO.read(new File("..\\img\\note.png")));
             systemTray.add(trayIcon);//设置托盘的图标
             PopupMenu kit_menu = new PopupMenu();
             MenuItem exit = new MenuItem("Exit");

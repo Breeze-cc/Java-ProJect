@@ -2,21 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2be96a9-e6b5-418e-87fb-c24bd57822eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Dialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DialogPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/note.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/note.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/保存.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/保存1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/关闭.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/关闭1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/删除.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/删除1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/取消.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/取消1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/备忘录.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/完成.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/完成1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/新建.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/新建1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/添加.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/添加1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/清空.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/清空1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/确定.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/确定1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/缩小.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/缩小1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/返回.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/返回1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/退格.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/退格1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/note.txt" beforeDir="false" afterPath="$PROJECT_DIR$/note.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Action_Listner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Action_Listner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DialogPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DialogPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EditPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EditWindow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Panel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StackList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StackList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SystemTrayDemo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/editwindow1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editwindow1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/note.csv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +72,6 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="ProJect" />
-      <option name="VM_PARAMETERS" value="-Dfile.encoding=GB18030" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -124,18 +140,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="278" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578770794456" />
-    <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578783718535">
+    <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578793482625">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578783718535" />
+    <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578793482625" />
     <state x="614" y="328" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578738137493">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="614" y="328" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1578738137493" />
-    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1578770114038">
+    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1578792549666">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1578770114038" />
+    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1578792549666" />
     <state x="803" y="412" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1577883278680">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -152,38 +168,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="732" y="264" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578590167613" />
-    <state width="1875" height="337" key="GridCell.Tab.0.bottom" timestamp="1578789465594">
+    <state width="937" height="337" key="GridCell.Tab.0.bottom" timestamp="1578795115666">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1875" height="337" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578789465594" />
-    <state width="1875" height="337" key="GridCell.Tab.0.center" timestamp="1578789465594">
+    <state width="937" height="337" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578795115666" />
+    <state width="937" height="337" key="GridCell.Tab.0.center" timestamp="1578795115666">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1875" height="337" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578789465594" />
-    <state width="1875" height="337" key="GridCell.Tab.0.left" timestamp="1578789465594">
+    <state width="937" height="337" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578795115666" />
+    <state width="937" height="337" key="GridCell.Tab.0.left" timestamp="1578795115666">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1875" height="337" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578789465594" />
-    <state width="1875" height="337" key="GridCell.Tab.0.right" timestamp="1578789465594">
+    <state width="937" height="337" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578795115666" />
+    <state width="937" height="337" key="GridCell.Tab.0.right" timestamp="1578795115666">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1875" height="337" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578789465594" />
-    <state width="937" height="337" key="GridCell.Tab.1.bottom" timestamp="1578783398326">
+    <state width="937" height="337" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578795115666" />
+    <state width="937" height="337" key="GridCell.Tab.1.bottom" timestamp="1578795042941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="337" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578783398326" />
-    <state width="937" height="337" key="GridCell.Tab.1.center" timestamp="1578783398326">
+    <state width="937" height="337" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578795042941" />
+    <state width="937" height="337" key="GridCell.Tab.1.center" timestamp="1578795042941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="337" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578783398326" />
-    <state width="937" height="337" key="GridCell.Tab.1.left" timestamp="1578783398326">
+    <state width="937" height="337" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578795042941" />
+    <state width="937" height="337" key="GridCell.Tab.1.left" timestamp="1578795042941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="337" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578783398326" />
-    <state width="937" height="337" key="GridCell.Tab.1.right" timestamp="1578783398326">
+    <state width="937" height="337" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578795042941" />
+    <state width="937" height="337" key="GridCell.Tab.1.right" timestamp="1578795042941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="337" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578783398326" />
+    <state width="937" height="337" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578795042941" />
     <state x="512" y="223" key="NewModule_or_Project.wizard" timestamp="1578576409600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -212,10 +228,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1578778048284" />
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1578788872375">
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1578792489560">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1578788872375" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1578792489560" />
     <state x="682" y="437" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1577777258606">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -231,8 +247,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/EditPane.java</url>
-          <line>248</line>
+          <line>246</line>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/EditPane.java</url>
+          <line>190</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
