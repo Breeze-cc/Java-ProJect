@@ -12,30 +12,33 @@ public class editwindow1 extends JFrame {
     private Map<String, String> map = new HashMap<String, String>();
     private JList list;
     private String key;
+    private MainMenu jf;
 
-    public editwindow1(StackList Ptrl, JList list, String key, Map<String, String> map) {
+    public editwindow1(StackList Ptrl, JList list, String key, Map<String, String> map, MainMenu jf) {
 
         this.key = key;
         this.list = list;
         this.map = map;
         this.PtrlS = Ptrl;
+        this.jf = jf;
 
-        //è®¾ç½®å¤§å°
-        this.setBounds(635, 300, 325, 485);
-        //è®¾ç½®å›ºå®šå¤§å°
+        //ÉèÖÃ´óĞ¡
+        this.setBounds(jf.mouseAtX, jf.mouseAtY, 325, 485);
+        //ÉèÖÃÏà¶ÔÎ»ÖÃ
+        this.setLocationRelativeTo(null);
+        //ÉèÖÃ¹Ì¶¨´óĞ¡
         this.setResizable(false);
-        //è®¾ç½®é»˜è®¤å…³é—­æ–¹å¼
+        //ÉèÖÃÄ¬ÈÏ¹Ø±Õ·½Ê½
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //æ·»åŠ ç”»å¸ƒJPanel
+        //Ìí¼Ó»­²¼JPanel
         this.add(new EditPane(PtrlS, list, key, map));
-        //éšè—çª—ä½“
+        //Òş²Ø´°Ìå
         this.setUndecorated(true);
-        //è®¾ç½®ç›¸å¯¹ä½ç½®
-        this.setLocationRelativeTo(Main.window);
+
         addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
                 /*
-                 * è·å–ç‚¹å‡»é¼ æ ‡æ—¶çš„åæ ‡
+                 * »ñÈ¡µã»÷Êó±êÊ±µÄ×ø±ê
                  */
                 mouseAtX = e.getPoint().x;
                 mouseAtY = e.getPoint().y;
@@ -43,7 +46,7 @@ public class editwindow1 extends JFrame {
         });
         addMouseMotionListener(new MouseMotionAdapter() {
             public void mouseDragged(MouseEvent e) {
-                setLocation((e.getXOnScreen() - mouseAtX), (e.getYOnScreen() - mouseAtY));//è®¾ç½®æ‹–æ‹½åï¼Œçª—å£çš„ä½ç½®
+                setLocation((e.getXOnScreen() - mouseAtX), (e.getYOnScreen() - mouseAtY));//ÉèÖÃÍÏ×§ºó£¬´°¿ÚµÄÎ»ÖÃ
             }
         });
         this.setVisible(true);

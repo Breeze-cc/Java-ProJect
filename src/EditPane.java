@@ -15,20 +15,20 @@ public class EditPane extends JPanel implements ActionListener {
     String key;
     Map<String, String> map;
 
-    ImageIcon image_add = new ImageIcon("..\\img\\æ·»åŠ .png");
-    ImageIcon image_add1 = new ImageIcon("..\\img\\æ·»åŠ 1.png");
-    ImageIcon image_bk = new ImageIcon("..\\img\\é€€æ ¼.png");
-    ImageIcon image_bk1 = new ImageIcon("..\\img\\é€€æ ¼1.png");
-    ImageIcon image_alldel = new ImageIcon("..\\img\\æ¸…ç©º.png");
-    ImageIcon image_alldel1 = new ImageIcon("..\\img\\æ¸…ç©º1.png");
-    ImageIcon image_save = new ImageIcon("..\\img\\ä¿å­˜.png");
-    ImageIcon image_save1 = new ImageIcon("..\\img\\ä¿å­˜1.png");
-    ImageIcon image_back = new ImageIcon("..\\img\\è¿”å›.png");
-    ImageIcon image_back1 = new ImageIcon("..\\img\\è¿”å›1.png");
+    ImageIcon image_add = new ImageIcon("..\\img\\Ìí¼Ó.png");
+    ImageIcon image_add1 = new ImageIcon("..\\img\\Ìí¼Ó1.png");
+    ImageIcon image_bk = new ImageIcon("..\\img\\ÍË¸ñ.png");
+    ImageIcon image_bk1 = new ImageIcon("..\\img\\ÍË¸ñ1.png");
+    ImageIcon image_alldel = new ImageIcon("..\\img\\Çå¿Õ.png");
+    ImageIcon image_alldel1 = new ImageIcon("..\\img\\Çå¿Õ1.png");
+    ImageIcon image_save = new ImageIcon("..\\img\\±£´æ.png");
+    ImageIcon image_save1 = new ImageIcon("..\\img\\±£´æ1.png");
+    ImageIcon image_back = new ImageIcon("..\\img\\·µ»Ø.png");
+    ImageIcon image_back1 = new ImageIcon("..\\img\\·µ»Ø1.png");
     ImageIcon image = new ImageIcon("..\\img\\background.png");
-    ImageIcon image_finish = new ImageIcon("..\\img\\å®Œæˆ.png");
-    ImageIcon image_finish1 = new ImageIcon("..\\img\\å®Œæˆ1.png");
-    Font font1 = new Font("HuaKangWaWaTiJianW5-1", Font.PLAIN, 14);
+    ImageIcon image_finish = new ImageIcon("..\\img\\Íê³É.png");
+    ImageIcon image_finish1 = new ImageIcon("..\\img\\Íê³É1.png");
+    Font font1 = new Font("»ª¿µÍŞÍŞÌåW5(P)", Font.PLAIN, 20);
 
     public EditPane(StackList PtrlS, JList list, String key, Map<String, String> map) {
 
@@ -38,12 +38,15 @@ public class EditPane extends JPanel implements ActionListener {
         this.PtrlS = PtrlS;
 
         if (map.get(key) != null) {
-            for (int i = 0; map.get(key).charAt(i + 1) != '\0'; i++) {
+            for (int i = 0; ;i++) {
+                if (map.get(key).charAt(i) == '\0'){
+                    break;
+                }
                 PtrlS.Push(map.get(key).charAt(i));
             }
         }
 
-        //é…ç½®å…­ä¸ªæŒ‰é’®ï¼šè¿”å›ï¼Œå®Œæˆï¼Œæ·»åŠ ï¼Œåˆ é™¤ï¼Œä¿å­˜ï¼Œæ¸…ç©º
+        //ÅäÖÃÁù¸ö°´Å¥£º·µ»Ø£¬Íê³É£¬Ìí¼Ó£¬É¾³ı£¬±£´æ£¬Çå¿Õ
         showMessage = new JTextArea();
         add = new JButton();
         delete = new JButton();
@@ -53,7 +56,7 @@ public class EditPane extends JPanel implements ActionListener {
         finish = new JButton();
 
         this.setLayout(null);
-        //é…ç½®æ–‡æœ¬æ¡†
+        //ÅäÖÃÎÄ±¾¿ò
         showMessage.setFont(font1);
         showMessage.setBounds(15, 50, 280, 200);
         showMessage.setOpaque(false);
@@ -62,7 +65,7 @@ public class EditPane extends JPanel implements ActionListener {
         showMessage.setText(PtrlS.getDatas());
         this.add(showMessage);
 
-        //é…ç½® æ·»åŠ  æŒ‰é’®
+        //ÅäÖÃ Ìí¼Ó °´Å¥
         add.setIcon(image_add);
         add.setBounds(18, 460, 20, 20);
         add.setBorderPainted(false);
@@ -81,7 +84,7 @@ public class EditPane extends JPanel implements ActionListener {
         });
         this.add(add);
 
-        //æ·»åŠ  é€€æ ¼ æŒ‰é’®
+        //Ìí¼Ó ÍË¸ñ °´Å¥
         delete.setIcon(image_bk);
         delete.setBounds(299, 460, 20, 20);
         delete.addActionListener(this);
@@ -100,7 +103,7 @@ public class EditPane extends JPanel implements ActionListener {
         });
         this.add(delete);
 
-        //é…ç½® æ¸…ç©º æŒ‰é’®
+        //ÅäÖÃ Çå¿Õ °´Å¥
         allDelete.setIcon(image_alldel);
         allDelete.setBounds(199, 460, 20, 20);
         allDelete.addActionListener(this);
@@ -119,7 +122,7 @@ public class EditPane extends JPanel implements ActionListener {
         allDelete.setContentAreaFilled(false);
         this.add(allDelete);
 
-        //é…ç½® ä¿å­˜ æŒ‰é’®
+        //ÅäÖÃ ±£´æ °´Å¥
         save.setIcon(image_save);
         save.setBounds(107, 460, 20, 20);
         save.setContentAreaFilled(false);
@@ -138,7 +141,7 @@ public class EditPane extends JPanel implements ActionListener {
         });
         this.add(save);
 
-        //æ·»åŠ  è¿”å› æŒ‰é’®
+        //Ìí¼Ó ·µ»Ø °´Å¥
         back.setIcon(image_back);
         back.setBounds(10, 10, 90, 20);
         back.addActionListener(this);
@@ -157,7 +160,7 @@ public class EditPane extends JPanel implements ActionListener {
         });
         this.add(back);
 
-        //é…ç½® å®Œæˆ æŒ‰é’®
+        //ÅäÖÃ Íê³É °´Å¥
         finish.setIcon(image_finish);
         finish.setBounds(270, 13, 50, 20);
         finish.setContentAreaFilled(false);
@@ -183,48 +186,51 @@ public class EditPane extends JPanel implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        //æ·»åŠ  æŒ‰é’®çš„è§¦å‘å™¨
+        //Ìí¼Ó °´Å¥µÄ´¥·¢Æ÷
         if (e.getSource() == add) {
-            String str = JOptionPane.showInputDialog(this, "å¯¹å¤‡å¿˜å½•è¿›è¡Œä¿®æ”¹", "è¯·è¾“å…¥è¦æ·»åŠ çš„å†…å®¹", JOptionPane.PLAIN_MESSAGE);
-            if (str != null) {
-                for (int i = 0; i < str.length(); i++) {
-                    PtrlS.Push(str.charAt(i));
-                }
-                showMessage.setText(PtrlS.getDatas());
-            }
+            new Dialog("ÇëÊäÈëÌí¼ÓµÄÄÚÈİ");
+//            UIManager UI = new UIManager();
+//            UI.put("OptionPane.background", Color.lightGray);
+//            String str = JOptionPane.showInputDialog(this,  "ÇëÊäÈëÒªÌí¼ÓµÄÄÚÈİ", JOptionPane.PLAIN_MESSAGE);
+//            if (str != null) {
+//                for (int i = 0; i < str.length(); i++) {
+//                    PtrlS.Push(str.charAt(i));
+//                }
+//                showMessage.setText(PtrlS.getDatas());
+//            }
         }
 
-        //é€€æ ¼ æŒ‰é’®çš„è§¦å‘å™¨
+        //ÍË¸ñ °´Å¥µÄ´¥·¢Æ÷
         if (e.getSource() == delete) {
             PtrlS.Pop();
             showMessage.setText(PtrlS.getDatas());
         }
 
-        //æ¸…ç©º æŒ‰é’®çš„è§¦å‘å™¨
+        //Çå¿Õ °´Å¥µÄ´¥·¢Æ÷
         if (e.getSource() == allDelete) {
             PtrlS = PtrlS.Clean();
             showMessage.setText(PtrlS.getDatas());
         }
 
-        //ä¿å­˜ æŒ‰é’®çš„è§¦å‘å™¨
+        //±£´æ °´Å¥µÄ´¥·¢Æ÷
         if (e.getSource() == save) {
-            String filename = "..\\img\\note.csv";
+            String filename = "..\\note.txt";
             File inMyPC = new File(filename);
 
-            //è¯»å–å¤‡å¿˜å½•æ ‡é¢˜
+            //¶ÁÈ¡±¸ÍüÂ¼±êÌâ
             String title = (String) list.getSelectedValue();
 
-            //å†™å…¥mapä¸­
+            //Ğ´ÈëmapÖĞ
             map.put(title, PtrlS.getDatas());
             //System.out.println(map);
 
-            //å†™å…¥æ–‡ä»¶ä¸­
+            //Ğ´ÈëÎÄ¼şÖĞ
             try {
                 BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(inMyPC), "UTF-8"));
                 for (String key : map.keySet()) {
                     String value = map.get(key);
                     out.write(key);
-                    out.write(",");
+                    out.write("¢ã");
                     out.write(value);
                     out.newLine();
                     out.flush();
@@ -233,30 +239,31 @@ public class EditPane extends JPanel implements ActionListener {
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
-            JOptionPane.showMessageDialog(this, "ä¿å­˜æˆåŠŸï¼");
+            JOptionPane.showMessageDialog(this, "±£´æ³É¹¦£¡");
         }
         if (e.getSource() == back){
 
-            Main.window.setExtendedState(Frame.NORMAL);
+            SwingUtilities.getWindowAncestor(Panel.delNote).setVisible(true);
+            SwingUtilities.getWindowAncestor(this).dispose();
         }
         if (e.getSource() == finish){
-            String filename = "..\\img\\note.csv";
+            String filename = "..\\note.txt";
             File inMyPC = new File(filename);
 
-            //è¯»å–å¤‡å¿˜å½•æ ‡é¢˜
+            //¶ÁÈ¡±¸ÍüÂ¼±êÌâ
             String title = (String) list.getSelectedValue();
 
-            //å†™å…¥mapä¸­
+            //Ğ´ÈëmapÖĞ
             map.put(title, PtrlS.getDatas());
             //System.out.println(map);
 
-            //å†™å…¥æ–‡ä»¶ä¸­
+            //Ğ´ÈëÎÄ¼şÖĞ
             try {
                 BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(inMyPC), "UTF-8"));
                 for (String key : map.keySet()) {
                     String value = map.get(key);
                     out.write(key);
-                    out.write(",");
+                    out.write("¢ã");
                     out.write(value);
                     out.newLine();
                     out.flush();
@@ -265,6 +272,8 @@ public class EditPane extends JPanel implements ActionListener {
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
+            SwingUtilities.getWindowAncestor(this).dispose();
+            SwingUtilities.getWindowAncestor(Panel.delNote).setVisible(true);
         }
     }
 }

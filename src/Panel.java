@@ -17,27 +17,29 @@ public class Panel extends JPanel {
     Map<String, String> map = new HashMap<String, String>();
     StackList PtrlS = new StackList();
     ImageIcon image = new ImageIcon("..\\img\\background.png");
-    Font article_font = new Font("æ±‰ä»ªé“¸å­—æœ¨å¤´äººW", Font.PLAIN, 16);
-    static ImageIcon close_image = new ImageIcon("..\\img\\å…³é—­.png");
-    static ImageIcon close_image1 = new ImageIcon("..\\img\\å…³é—­1.png");
-    static ImageIcon mini_image = new ImageIcon("..\\img\\ç¼©å°.png");
-    static ImageIcon mini_image1 = new ImageIcon("..\\img\\ç¼©å°1.png");
-    static ImageIcon new_image = new ImageIcon("..\\img\\æ–°å»º.png");
-    static ImageIcon new_image1 = new ImageIcon("..\\img\\æ–°å»º1.png");
-    static ImageIcon del_image = new ImageIcon("..\\img\\åˆ é™¤.png");
-    static ImageIcon del_image1 = new ImageIcon("..\\img\\åˆ é™¤1.png");
+    Font article_font = new Font("ººÒÇÖı×ÖÄ¾Í·ÈËW", Font.PLAIN, 16);
+    static ImageIcon close_image = new ImageIcon("..\\img\\¹Ø±Õ.png");
+    static ImageIcon close_image1 = new ImageIcon("..\\img\\¹Ø±Õ1.png");
+    static ImageIcon mini_image = new ImageIcon("..\\img\\ËõĞ¡.png");
+    static ImageIcon mini_image1 = new ImageIcon("..\\img\\ËõĞ¡1.png");
+    static ImageIcon new_image = new ImageIcon("..\\img\\ĞÂ½¨.png");
+    static ImageIcon new_image1 = new ImageIcon("..\\img\\ĞÂ½¨1.png");
+    static ImageIcon del_image = new ImageIcon("..\\img\\É¾³ı.png");
+    static ImageIcon del_image1 = new ImageIcon("..\\img\\É¾³ı1.png");
     JScrollPane jsp;
-    Point point;
+    MainMenu jf;
 
-    public Panel() throws IOException, FileNotFoundException {
-        //è®¾ç½®Panelä¸ºç»å¯¹å¸ƒå±€
+    public Panel(MainMenu jf) throws IOException, FileNotFoundException {
+        this.jf = jf;
+
+        //ÉèÖÃPanelÎª¾ø¶Ô²¼¾Ö
         this.setLayout(null);
 
-        //æ–°å»ºæ–°çš„åˆ—è¡¨
+        //ĞÂ½¨ĞÂµÄÁĞ±í
         String[] test = new String[]{};
         list = new JList();
 
-        //è®¾ç½®æœ€å°åŒ–æŒ‰é’®
+        //ÉèÖÃ×îĞ¡»¯°´Å¥
         JButton button_mini = new JButton();
         button_mini.setIcon(mini_image);
         button_mini.setBounds(199, 18, 20, 20);
@@ -57,10 +59,10 @@ public class Panel extends JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                Main.window.dispose();
+                SwingUtilities.getWindowAncestor(Panel.delNote).dispose();
             }
         });
-        //è®¾ç½®å…³é—­æŒ‰é’®
+        //ÉèÖÃ¹Ø±Õ°´Å¥
         JButton button_close = new JButton();
         button_close.setIcon(close_image);
         button_close.setBounds(290, 18, 20, 20);
@@ -83,26 +85,20 @@ public class Panel extends JPanel {
                 button_close.setIcon(close_image);
             }
         });
-        //Listçš„ç¾åŒ–
+        //ListµÄÃÀ»¯
         list.setLayout(null);
         list.setFixedCellWidth(309);
-        list.setFixedCellHeight(40);    //é—´è·
-        list.setFont(article_font);     //å­—ä½“
+        list.setFixedCellHeight(40);    //¼ä¾à
+        list.setFont(article_font);     //×ÖÌå
         list.setOpaque(false);
-        list.setSelectionBackground(new Color(196, 194, 213, 78));     //è®¾ç½®é€‰ä¸­æ¡ç›®çš„é¢œè‰²
-        //è®¾ç½®æœªé€‰ä¸­æ¡ç›®çš„é¢œè‰²ä»¥åŠè¾¹æ¡†
+        list.setSelectionBackground(new Color(196, 194, 213, 78));     //ÉèÖÃÑ¡ÖĞÌõÄ¿µÄÑÕÉ«
+        //ÉèÖÃÎ´Ñ¡ÖĞÌõÄ¿µÄÑÕÉ«ÒÔ¼°±ß¿ò
         list.setCellRenderer(new DefaultListCellRenderer() {
 
             @Override
             public Component getListCellRendererComponent(JList list, Object value, int index,
                                                           boolean isSelected, boolean cellHasFocus) {
                 Component c = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-//                setback(image);
-//                for (int i = 0; i < list.getModel().getSize(); i++) {
-//                    if (!list.isSelectedIndex(i)) {
-//                        setBackground(new Color(250, 244, 165));
-//                    }
-//                }
                 this.addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseEntered(MouseEvent e) {
@@ -116,7 +112,7 @@ public class Panel extends JPanel {
                 });
                 Border line_border = BorderFactory.createLineBorder(new Color(153, 153, 153), 1, false);
 //                Border raise_border = BorderFactory.createRaisedBevelBorder();
-                Border title_border = BorderFactory.createTitledBorder(null, Time.getTime(), TitledBorder.LEFT, TitledBorder.TOP, new Font("å¾®è½¯é›…é»‘", Font.ITALIC, 12), new Color(0, 0, 0));
+                Border title_border = BorderFactory.createTitledBorder(null, Time.getTime(), TitledBorder.LEFT, TitledBorder.TOP, new Font("Î¢ÈíÑÅºÚ", Font.ITALIC, 12), new Color(0, 0, 0));
                 Border b1 = BorderFactory.createCompoundBorder(line_border, title_border);
 //                setBorder(BorderFactory.createCompoundBorder();
                 setBorder(b1);
@@ -128,20 +124,20 @@ public class Panel extends JPanel {
 
         });
 
-        Action_Listner listener = new Action_Listner(PtrlS, list, tmp, map, newNote, delNote);
-        //ä¸ºlistæ·»åŠ ç›‘å¬ï¼Œäº‹ä»¶å“åº”
+        Action_Listner listener = new Action_Listner(PtrlS, list, tmp, map, jf);
+        //ÎªlistÌí¼Ó¼àÌı£¬ÊÂ¼şÏìÓ¦
         list.addMouseListener(listener);
-        //è®¾ç½®åˆ—è¡¨çš„æ˜¾ç¤ºæ–¹å¼ï¼šç”¨ä¸€åˆ—æ˜¾ç¤º
+        //ÉèÖÃÁĞ±íµÄÏÔÊ¾·½Ê½£ºÓÃÒ»ÁĞÏÔÊ¾
         list.setLayoutOrientation(JList.VERTICAL);
 
-        //è®¾ç½®åˆ—è¡¨æ¯æ¬¡åªèƒ½æœ‰ä¸€ä¸ªé€‰é¡¹è¢«é€‰ä¸­
+        //ÉèÖÃÁĞ±íÃ¿´ÎÖ»ÄÜÓĞÒ»¸öÑ¡Ïî±»Ñ¡ÖĞ
         list.setSelectionMode(0);
 
-        //æ‰“å¼€ä¹‹åå…ˆè¯»å–æ–‡ä»¶ä¸­å·²æœ‰çš„é¡¹å¹¶æ·»åŠ åˆ°listä¸­
-        String filename = "..\\img\\note.csv";
+        //´ò¿ªÖ®ºóÏÈ¶ÁÈ¡ÎÄ¼şÖĞÒÑÓĞµÄÏî²¢Ìí¼Óµ½listÖĞ
+        String filename = "..\\note.txt";
         File inMyPC = new File(filename);
 
-        //å¦‚æœä¸å­˜åœ¨è¯¥æ–‡ä»¶ï¼Œå°±æ–°å»ºä¸€ä¸ª
+        //Èç¹û²»´æÔÚ¸ÃÎÄ¼ş£¬¾ÍĞÂ½¨Ò»¸ö
         if (!inMyPC.exists()) {
             try {
                 inMyPC.createNewFile();
@@ -150,20 +146,17 @@ public class Panel extends JPanel {
             }
         }
 
-        //ä»æ–‡ä»¶ä¸­è¯»å–txtçš„é”®
-        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("..\\img\\note.csv"), "UTF-8"));
+        //´ÓÎÄ¼şÖĞ¶ÁÈ¡txtµÄ¼ü
+        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("..\\note.txt"), "UTF-8"));
         String line = null;
         while ((line = in.readLine()) != null) {
-            line.replace("\r", "");
-            line.replace("\t", "");
-//            HashMap<String, String> item = new HashMap<String, String>();
-            String[] itemArray = line.split(",");
+            String[] itemArray = line.split("¢ã");
             this.map.put(itemArray[0], itemArray[1]);
             tmp.addElement(itemArray[0]);
         }
         list.setModel(tmp);
 
-//        è®¾ç½®æ–°å»ºæŒ‰é’®çš„å±æ€§
+//        ÉèÖÃĞÂ½¨°´Å¥µÄÊôĞÔ
         newNote = new JButton();
         newNote.setIcon(new_image);
         newNote.setBounds(18, 18, 20, 20);
@@ -182,7 +175,7 @@ public class Panel extends JPanel {
             }
         });
 
-//        è®¾ç½®åˆ é™¤æŒ‰é’®çš„å±æ€§
+//        ÉèÖÃÉ¾³ı°´Å¥µÄÊôĞÔ
         delNote = new JButton();
         delNote.setIcon(del_image);
         delNote.setBounds(107, 18, 20, 20);
@@ -203,7 +196,7 @@ public class Panel extends JPanel {
 
         JScrollPane jsp = new JScrollPane(list);
 
-        //è®¾ç½®åˆ—è¡¨æ‰€å é¢ç§¯çš„ä½ç½®å’Œå¤§å°
+        //ÉèÖÃÁĞ±íËùÕ¼Ãæ»ıµÄÎ»ÖÃºÍ´óĞ¡
         jsp.setBounds(7, 50, 310, 480);
         jsp.setBorder(null);
         jsp.setOpaque(false);
@@ -212,7 +205,7 @@ public class Panel extends JPanel {
         this.add(button_close);
         this.add(button_mini);
 
-        //å°† â€œæ–°å»ºâ€ å’Œ â€œåˆ é™¤â€ æ·»åŠ åˆ°ç”»æ¿ä¸Š
+        //½« ¡°ĞÂ½¨¡± ºÍ ¡°É¾³ı¡± Ìí¼Óµ½»­°åÉÏ
         this.add(newNote);
         this.add(delNote);
 

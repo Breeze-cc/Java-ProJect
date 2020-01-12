@@ -5,7 +5,7 @@ class StackList {
     private char Data[] = new char[10000];
     private int Top;
 
-    //æ„é€ æ–¹æ³•
+    //¹¹Ôì·½·¨
     StackList() {
         Top = 0;
     }
@@ -13,7 +13,7 @@ class StackList {
     public boolean isFull(){
         if (Top >= 10000){
 
-            //è‹¥ä¸€ä¸ªåŒºå—è¾“å…¥å¤šäºå››åä¸ªå­—ç¬¦ï¼Œåˆ™å£°éŸ³æç¤º
+            //ÈôÒ»¸öÇø¿éÊäÈë¶àÓÚËÄÊ®¸ö×Ö·û£¬ÔòÉùÒôÌáÊ¾
             Toolkit.getDefaultToolkit().beep();
 
             return true;
@@ -27,7 +27,7 @@ class StackList {
         boolean b = false;
         if (Top <= 0){
 
-            //å¦‚æœå·²ç»åˆ é™¤å¹²å‡€è¿˜è¦åˆ é™¤ï¼Œå£°éŸ³æç¤º
+            //Èç¹ûÒÑ¾­É¾³ı¸É¾»»¹ÒªÉ¾³ı£¬ÉùÒôÌáÊ¾
             Toolkit.getDefaultToolkit().beep();
 
             b = true;

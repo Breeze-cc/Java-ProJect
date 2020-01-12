@@ -15,52 +15,53 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
     private DefaultListModel tmp;
     private Map<String, String> map;
     private StackList PtrlS;
-    public Action_Listner(StackList PtrlS, JList list, DefaultListModel tmp, Map<String, String> map, JButton newI, JButton delI) {
+    private MainMenu jf;
+    public Action_Listner(StackList PtrlS, JList list, DefaultListModel tmp, Map<String, String> map, MainMenu jf) {
         this.list = list;
         this.tmp = tmp;
         this.map = map;
         this.PtrlS = PtrlS;
+        this.jf = jf;
     }
-    static editwindow1 editwindow;
+    JLabel jump;
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        //å¦‚æœè§¦å‘å“åº”çš„å™¨ä»¶ä¸Šçš„å­—ç¬¦ä¸²æ˜¯ â€œæ–°å»ºâ€
+        //Èç¹û´¥·¢ÏìÓ¦µÄÆ÷¼şÉÏµÄ×Ö·û´®ÊÇ ¡°ĞÂ½¨¡±
         if (e.getSource() == Panel.newNote) {
-
-            //å¼¹å‡ºæ–°çš„çª—å£è¾“å…¥æ–°å¤‡å¿˜å½•çš„æ ‡é¢˜
-            String str = JOptionPane.showInputDialog(list, "æ–°å»ºå¤‡å¿˜å½•", JOptionPane.PLAIN_MESSAGE);
+            //µ¯³öĞÂµÄ´°¿ÚÊäÈëĞÂ±¸ÍüÂ¼µÄ±êÌâ
+            String str = JOptionPane.showInputDialog(list, jump, "ĞÂ½¨±¸ÍüÂ¼", JOptionPane.PLAIN_MESSAGE);
 
             if (str != null) {
-                //æ·»åŠ åˆ—è¡¨é¡¹ç›®
+                //Ìí¼ÓÁĞ±íÏîÄ¿
                 tmp.addElement(str);
 
-                //å°†tmpä¸­çš„å†…å®¹åŒæ­¥åˆ°list
+                //½«tmpÖĞµÄÄÚÈİÍ¬²½µ½list
                 list.setModel(tmp);
             }
         }
 
-        //å¦‚æœè§¦å‘å“åº”çš„å™¨ä»¶ä¸Šçš„å­—ç¬¦ä¸²æ˜¯ â€œåˆ é™¤â€
+        //Èç¹û´¥·¢ÏìÓ¦µÄÆ÷¼şÉÏµÄ×Ö·û´®ÊÇ ¡°É¾³ı¡±
         if (e.getSource() == Panel.delNote) {
 
-            //å¦‚æœåˆ—è¡¨çš„æ¡ç›®æ•°é‡å¤§äº0
+            //Èç¹ûÁĞ±íµÄÌõÄ¿ÊıÁ¿´óÓÚ0
             if (tmp.getSize() > 0) {
 
-                //å¦‚æœæœ‰å†…å®¹è¢«é€‰ä¸­
+                //Èç¹ûÓĞÄÚÈİ±»Ñ¡ÖĞ
                 if (list.getSelectedIndex() != -1) {
 
 
                     map.remove(list.getSelectedValue());
 
-                    String filename = "..\\img\\note.csv";
+                    String filename = "..\\img\\note.txt";
                     File inMyPC = new File(filename);
                     try {
-                        //æ–‡ä»¶è¿½åŠ ï¼Œä½¿å†™å…¥çš„ä¸ä¼šè¦†ç›–åŸæœ¬çš„å†…å®¹
+                        //ÎÄ¼ş×·¼Ó£¬Ê¹Ğ´ÈëµÄ²»»á¸²¸ÇÔ­±¾µÄÄÚÈİ
                         BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(inMyPC), "UTF-8"));
                         for (String key : map.keySet()) {
                             String value = map.get(key);
                             out.write(key);
-                            out.write(",");
+                            out.write("¢ã");
                             out.write(value);
                             out.newLine();
                             out.flush();
@@ -69,31 +70,31 @@ public class Action_Listner implements ActionListener, ListSelectionListener, Mo
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
-                    //å°†é€‰ä¸­å†…å®¹ç§»é™¤
+                    //½«Ñ¡ÖĞÄÚÈİÒÆ³ı
                     tmp.removeElementAt(list.getLeadSelectionIndex());
 
-                    //å°†tmpä¸­çš„å†…å®¹åŒæ­¥è‡³list
+                    //½«tmpÖĞµÄÄÚÈİÍ¬²½ÖÁlist
                     list.setModel(tmp);
-                    JOptionPane.showMessageDialog(list, "åˆ é™¤æˆåŠŸï¼");
+                    JOptionPane.showMessageDialog(list, "É¾³ı³É¹¦£¡");
                 }
 
-                //å¦‚æœæ²¡æœ‰å†…å®¹è¢«é€‰ä¸­ï¼Œåˆ™å¼¹å‡ºæç¤ºçª—å£
+                //Èç¹ûÃ»ÓĞÄÚÈİ±»Ñ¡ÖĞ£¬Ôòµ¯³öÌáÊ¾´°¿Ú
                 else {
-                    JOptionPane.showMessageDialog(list, "è¯·é€‰æ‹©è¦åˆ é™¤çš„é¡¹");
+                    JOptionPane.showMessageDialog(list, "ÇëÑ¡ÔñÒªÉ¾³ıµÄÏî");
                 }
             }
         }
     }
 
-    //é‡è½½æ–¹æ³•,é¼ æ ‡åŒå‡»äº‹ä»¶
+    //ÖØÔØ·½·¨,Êó±êË«»÷ÊÂ¼ş
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == list) {
             if (list.getSelectedIndex() != -1) {
                 if (e.getClickCount() == 2) {
                     String key = (String) list.getSelectedValue();
-                        Main.window.dispose();
-                        editwindow1 editwindow = new editwindow1(PtrlS, list, key, map);
+                        editwindow1 editwindow = new editwindow1(PtrlS, list, key, map, jf);
+                        SwingUtilities.getWindowAncestor(Panel.delNote).dispose();
                         PtrlS = PtrlS.Clean();
 //                    }
                 }

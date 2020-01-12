@@ -6,65 +6,78 @@ import java.io.File;
 import java.io.IOException;
 
 public class MainMenu extends JFrame {
-    private TrayIcon trayIcon;//æ‰˜ç›˜å›¾æ ‡
-    private SystemTray systemTray;//ç³»ç»Ÿæ‰˜ç›˜
+    private TrayIcon trayIcon;//ÍĞÅÌÍ¼±ê
+    private SystemTray systemTray;//ÏµÍ³ÍĞÅÌ
 
-    int mouseAtX = 0;
-    int mouseAtY = 0;
+    int mouseAtX = getX();
+    int mouseAtY = getY();
+
     public MainMenu() throws IOException, AWTException {
 
-        systemTray = SystemTray.getSystemTray();//è·å¾—ç³»ç»Ÿæ‰˜ç›˜çš„å®ä¾‹
+        systemTray = SystemTray.getSystemTray();//»ñµÃÏµÍ³ÍĞÅÌµÄÊµÀı
 
-        //è®¾ç½®æ ‡é¢˜
-        this.setTitle("ç®€æ˜“å¤‡å¿˜å½• -- By:Breeze_cc");
-        //è®¾ç½®å¤§å°
+        //ÉèÖÃ±êÌâ
+        this.setTitle("¼òÒ×±¸ÍüÂ¼ -- By:Breeze_cc");
+        //ÉèÖÃ´óĞ¡
         this.setBounds(635, 300, 325, 485);
-        //è®¾ç½®å›ºå®šå¤§å°
+        //ÉèÖÃ¹Ì¶¨´óĞ¡
         this.setResizable(false);
-        //è®¾ç½®é»˜è®¤å…³é—­æ–¹å¼
+        this.setLocationRelativeTo(null);
+        //ÉèÖÃÄ¬ÈÏ¹Ø±Õ·½Ê½
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //æ·»åŠ ç”»å¸ƒJPanel
-        this.add(new Panel());
-        //éšè—çª—ä½“
+        //Ìí¼Ó»­²¼JPanel
+        this.add(new Panel(this));
+        //Òş²Ø´°Ìå
         this.setUndecorated(true);
-        addMouseListener(new MouseAdapter()
-        {
-            public void mousePressed(MouseEvent e)
-            {
+        addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
                 /*
-                 * è·å–ç‚¹å‡»é¼ æ ‡æ—¶çš„åæ ‡
+                 * »ñÈ¡µã»÷Êó±êÊ±µÄ×ø±ê
                  */
                 mouseAtX = e.getPoint().x;
                 mouseAtY = e.getPoint().y;
             }
         });
-        addMouseMotionListener(new MouseMotionAdapter()
-        {
-            public void mouseDragged(MouseEvent e)
-            {
-                setLocation((e.getXOnScreen()-mouseAtX),(e.getYOnScreen()-mouseAtY));//è®¾ç½®æ‹–æ‹½åï¼Œçª—å£çš„ä½ç½®
+        addMouseMotionListener(new MouseMotionAdapter() {
+            public void mouseDragged(MouseEvent e) {
+                setLocation((e.getXOnScreen() - mouseAtX), (e.getYOnScreen() - mouseAtY));//ÉèÖÃÍÏ×§ºó£¬´°¿ÚµÄÎ»ÖÃ
             }
         });
         this.setVisible(true);
 
         try {
-            trayIcon = new TrayIcon(ImageIO.read(new File("..\\img\\å¤‡å¿˜å½•.png")));
-            systemTray.add(trayIcon);//è®¾ç½®æ‰˜ç›˜çš„å›¾æ ‡ï¼Œ0.gifä¸è¯¥ç±»æ–‡ä»¶åŒä¸€ç›®å½•
+            trayIcon = new TrayIcon(ImageIO.read(new File("..\\img\\±¸ÍüÂ¼.png")));
+            systemTray.add(trayIcon);//ÉèÖÃÍĞÅÌµÄÍ¼±ê
+            PopupMenu kit_menu = new PopupMenu();
+            MenuItem exit = new MenuItem("Exit");
+            exit.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+                    System.exit(0);
+                }
+            });
+            MenuItem open = new MenuItem("Open Original Window");
+            open.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+                    SwingUtilities.getWindowAncestor(Panel.delNote).setVisible(true);
+                }
+            });
+            kit_menu.add(open);
+            kit_menu.add(exit);
+            trayIcon.setToolTip("±¸ÍüÂ¼");
+            trayIcon.setPopupMenu(kit_menu);
+
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        } catch (AWTException e2) {
+            e2.printStackTrace();
         }
-        catch (IOException e1) {e1.printStackTrace();}
-        catch (AWTException e2) {e2.printStackTrace();}
-        this.addWindowListener(
-                new WindowAdapter(){
-                    public void windowIconified(WindowEvent e){
-                        //System.out.println("çª—å£æœ€å°åŒ–åˆ°æ‰˜ç›˜");
-                        dispose();//çª—å£æœ€å°åŒ–æ—¶disposeè¯¥çª—å£
-                    }
-                });
 
         trayIcon.addMouseListener(
-                new MouseAdapter(){
-                    public void mouseClicked(MouseEvent e){
-                        if(e.getClickCount() == 2)//åŒå‡»æ‰˜ç›˜çª—å£å†ç°
+                new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        if (e.getClickCount() == 2)//Ë«»÷ÍĞÅÌ´°¿ÚÔÙÏÖ
                             setExtendedState(Frame.NORMAL);
                         setVisible(true);
                     }
